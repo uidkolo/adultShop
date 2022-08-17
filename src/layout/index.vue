@@ -1,5 +1,6 @@
 <template>
   <section class="app-main">
+    <nav-bar />
     <div class="container">
       <transition name="fade-transform" mode="out-in">
         <keep-alive>
@@ -7,7 +8,6 @@
         </keep-alive>
       </transition>
     </div>
-    <nav-bar />
   </section>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: calc(100% - 60px) 60px;
+  grid-template-rows: 150px calc(100% - 150px);
   // background: url("../assets/public/bg.png");
   // background-size: 100% 100%;
 }
