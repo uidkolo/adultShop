@@ -1,13 +1,13 @@
 <template>
   <div class="product-item">
-      <img class="img" :src="require('@/assets/product.jpeg')">
-      <div class="name">情趣丝袜套装</div>
+      <img class="img" :src="product.images[1]">
+      <div class="name">{{product.name}}</div>
       <div class="info">
           <div class="price">
               <span class="unit">￥</span>
-              <span class="value">118</span>
+              <span class="value">{{product.price}}</span>
           </div>
-          <div class="cart">
+          <div class="cart" @click="add(product.id)">
               <img class="icon" :src="require('@/assets/icon_cart.png')" alt="">
           </div>
       </div>
@@ -16,7 +16,28 @@
 
 <script>
 export default {
-  name: 'ProductItem'
+  name: 'ProductItem',
+  props: {
+      product: Object
+  },
+  methods:{
+      add(id){
+        const cartStr = localStorage.getItem('cart')
+        const cartList = JSON.parse(cartStr)
+        let ids = []
+        for(let item of cartList){
+            ids.push(item.id)
+            if(item.id == id) item.amount = item.amount + 1
+        }
+        if(!ids.includes(id)){
+            cartList.push({
+                id,
+                amount: 1
+            })
+        }
+
+      }
+  }
 }
 </script>
 

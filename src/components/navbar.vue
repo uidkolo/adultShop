@@ -2,28 +2,46 @@
   <div class="navbar">
     <div class="top">
       <router-link class="item" :class="{active: pageName=='woman'}" to="/woman" key="woman">
-        <img :src="require('@/assets/icon_01.png')">
-        <span>女用</span>
+        <div class="box">
+          <img :src="require('@/assets/icon_01.png')" v-if="pageName=='woman'">
+          <img :src="require('@/assets/icon_01_0.png')" v-else>
+          <span>女用</span>
+        </div>
       </router-link>
       <router-link class="item" :class="{active: pageName=='man'}" to="/man" key="man">
-        <img :src="require('@/assets/icon_02.png')">
-        <span>男用</span>
+       <div class="box">
+          <img :src="require('@/assets/icon_02.png')" v-if="pageName=='man'">
+          <img :src="require('@/assets/icon_02_0.png')" v-else>
+          <span>男用</span>
+       </div>
       </router-link>
       <router-link class="item" :class="{active: pageName=='clothing'}" to="/clothing" key="clothing">
-        <img :src="require('@/assets/icon_03.png')">
-        <span>服饰</span>
+       <div class="box">
+          <img :src="require('@/assets/icon_03.png')" v-if="pageName=='clothing'">
+          <img :src="require('@/assets/icon_03_0.png')" v-else>
+          <span>服饰</span>
+       </div>
       </router-link>
       <router-link class="item" :class="{active: pageName=='condom'}" to="/condom" key="condom">
-        <img :src="require('@/assets/icon_04.png')">
+       <div class="box">
+        <img :src="require('@/assets/icon_04.png')" v-if="pageName=='condom'">
+        <img :src="require('@/assets/icon_04_0.png')" v-else>
         <span>避孕</span>
+       </div>
       </router-link>
       <router-link class="item" :class="{active: pageName=='sm'}" to="/sm" key="sm">
-        <img :src="require('@/assets/icon_05.png')">
-        <span>SM</span>
+        <div class="box">
+          <img :src="require('@/assets/icon_05.png')" v-if="pageName=='sm'">
+          <img :src="require('@/assets/icon_05_0.png')" v-else>
+          <span>SM</span>
+        </div>
       </router-link>
       <router-link class="item" :class="{active: pageName=='nurse'}" to="/nurse" key="nurse">
-        <img :src="require('@/assets/icon_06.png')">
-        <span>护理</span>
+        <div class="box">
+          <img :src="require('@/assets/icon_06.png')" v-if="pageName=='nurse'">
+          <img :src="require('@/assets/icon_06_0.png')" v-else>
+          <span>护理</span>
+        </div>     
       </router-link>
     </div>
     <div class="bottom">
@@ -42,9 +60,6 @@ export default {
     pageName(){
       return this.$route.name
     }
-  },
-  mounted(){
-    console.log(this.path)
   }
 }
 </script>
@@ -68,10 +83,16 @@ export default {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 15px 0 15px 10px;
+      padding: 15px 0;
+      .box{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       img{
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
       }
       span{
         font-size: 14px;
@@ -85,8 +106,9 @@ export default {
           font-weight: bold;
           color: #de95ba;
         }
-
-        border-left: 4px solid #de95ba;
+        .box{
+          border-left: 3px solid #de95ba;
+        }
       }
     }
   }
