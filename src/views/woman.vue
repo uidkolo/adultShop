@@ -1,12 +1,22 @@
 
 <template>
   <div class="woman">
-    <h1>woman</h1>
+    <product v-for="(item, index) of 20" :key="index" />
   </div>
 </template>
 
 <script>
+import Product from '@/components/product'
 export default {
-  name: 'VueWoman'
+  name: 'VueWoman',
+  components: { Product }
 }
 </script>
+
+<style scoped lang="scss">
+.woman{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+</style>

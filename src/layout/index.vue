@@ -24,8 +24,10 @@ export default {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 150px calc(100% - 150px);
-  // background: url("../assets/public/bg.png");
-  // background-size: 100% 100%;
+  grid-template-columns: 90px calc(100% - 90px);
+  .container{
+    padding: 5px;
+    overflow-y: auto;
+  }
 }
 </style>
