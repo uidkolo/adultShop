@@ -46,11 +46,11 @@ export default {
       justify-content: space-between;
       .price{
           .unit{
-              color: pink;
+              color: #e84a5f;
               font-size: 12px;
           }
           .value{
-            color: pink;
+            color: #e84a5f;
             font-size: 18px;
             font-weight: bold;
           }
@@ -59,7 +59,7 @@ export default {
           width: 26px;
           height: 26px;
           border-radius: 50%;
-          background: pink;
+          background: #de95ba;
           display: flex;
           align-items: center;
           justify-content: center;

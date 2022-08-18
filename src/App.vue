@@ -19,4 +19,17 @@ html,body,#app{
   overflow: hidden;
   background: #f6f6f6;
 }
+
+.color-1{
+  color: #4a266a;
+}
+.color-2{
+  color: #7f4a88;
+}
+.color-3{
+  color: #7f4a88;
+}
+.color-4{
+  color: #ffd9e8;
+}
 </style>
