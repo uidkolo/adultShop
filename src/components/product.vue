@@ -22,20 +22,7 @@ export default {
   },
   methods:{
       add(id){
-        const cartStr = localStorage.getItem('cart')
-        const cartList = JSON.parse(cartStr)
-        let ids = []
-        for(let item of cartList){
-            ids.push(item.id)
-            if(item.id == id) item.amount = item.amount + 1
-        }
-        if(!ids.includes(id)){
-            cartList.push({
-                id,
-                amount: 1
-            })
-        }
-
+        this.$store.dispatch('addCart', id)
       }
   }
 }

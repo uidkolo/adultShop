@@ -1,6 +1,7 @@
 <template>
   <section class="app-main">
     <div class="head">
+      <div class="back">返回</div>
       <img class="logo" src="../assets/logo.png" alt="">
       <div class="h24">
         <img src="../assets/24h.png" alt="">
@@ -34,7 +35,6 @@ export default {
   display: grid;
   grid-template-rows: 50px calc(100% - 50px);
   .head{
-    padding: 0 10px 0 5px;
     display: flex;
     align-items: center;
     background: #222831;
@@ -42,6 +42,12 @@ export default {
     color: white;
     line-height: 50px;
     text-align: center;
+    .back{
+      background: #333;
+      padding: 0 15px;
+      color: #cdcdcd;
+      font-size: 14px;
+    }
     .logo{
       height: 40px;
     }

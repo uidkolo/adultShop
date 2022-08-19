@@ -45,10 +45,10 @@
       </router-link>
     </div>
     <div class="bottom">
-      <div class="cart">
-        <div class="number">4</div>
+      <router-link class="cart" to="/cart" key="cart">
+        <div class="number" v-if="cart.length > 0">{{cart.length}}</div>
         <img class="icon" :src="require('@/assets/icon_cart.png')" alt="">
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -59,7 +59,13 @@ export default {
   computed: {
     pageName(){
       return this.$route.name
+    },
+    cart(){
+      return this.$store.state.cart || []
     }
+  },
+  mounted(){
+    console.log(this.cart)
   }
 }
 </script>
