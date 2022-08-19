@@ -1,14 +1,17 @@
 <template>
   <section class="app-main">
     <div class="head">
-      <div class="back">返回</div>
+      <div class="back" v-if="showBack" @click="$router.back()">
+        <img class="icon" src="../assets/back.png" alt="">
+        <span>返回</span>
+      </div>
       <img class="logo" src="../assets/logo.png" alt="">
       <div class="h24">
         <img src="../assets/24h.png" alt="">
       </div>
     </div>
-    <div class="box">
-      <nav-bar />
+    <div class="box" :class="{ hideNavbar: showNavbar }">
+      <nav-bar v-if="showNavbar" />
       <div class="container">
         <transition name="fade-transform" mode="out-in">
           <keep-alive>
@@ -24,7 +27,19 @@
 import NavBar from '../components/navbar'
 export default {
   name: 'VueLayout',
-  components: { NavBar }
+  components: { NavBar },
+  computed: {
+    pageName(){
+      return this.$route.name
+    },
+    showBack(){
+       return ['cart', 'detail'].includes(this.pageName)
+    },
+    showNavbar(){
+      const result = ['cart', 'detail'].includes(this.pageName)
+      return !result
+    },
+  },
 }
 </script>
 
@@ -37,16 +52,32 @@ export default {
   .head{
     display: flex;
     align-items: center;
+    justify-content: center;
     background: #222831;
     font-size: 18px;
     color: white;
     line-height: 50px;
     text-align: center;
+    position: relative;
     .back{
-      background: #333;
-      padding: 0 15px;
+      height: 50px;
+      padding: 0 5px;
       color: #cdcdcd;
       font-size: 14px;
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span{
+        color: white;
+        margin-left: 5px;
+      }
+      .icon{
+        height: 16px;
+        position: relative;
+        bottom: 1px;
+      }
     }
     .logo{
       height: 40px;
@@ -56,19 +87,23 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      position: absolute;
+      right: 10px;
       img{
-        height: 20px;
+        height: 12px;
       }
     }
   }
   .box{
     height: 100%;
     display: grid;
-    grid-template-columns: 90px calc(100% - 90px);
+    grid-template-columns: 1fr;
     .container{
-      padding: 5px;
       overflow-y: auto;
     }
+  }
+  .hideNavbar{
+    grid-template-columns: 90px calc(100% - 90px);
   }
 }
 </style>

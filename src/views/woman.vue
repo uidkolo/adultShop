@@ -30,6 +30,7 @@ export default {
 
 <style scoped lang="scss">
 .woman{
+  padding: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;

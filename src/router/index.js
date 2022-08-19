@@ -71,9 +71,23 @@ const routes = [{
     },
     {
         path: '/cart',
-        component: () =>
-            import ('../views/cart.vue'),
-        name: 'cart'
+        component: Layout,
+        children: [{
+            path: '',
+            component: () =>
+                import ('../views/cart.vue'),
+            name: 'cart'
+        }]
+    },
+    {
+        path: '/detail',
+        component: Layout,
+        children: [{
+            path: '',
+            component: () =>
+                import ('../views/detail.vue'),
+            name: 'detail'
+        }]
     }
 ]
 

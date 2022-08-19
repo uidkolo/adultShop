@@ -31,17 +31,20 @@ export default new Vuex.Store({
             localStorage.setItem('cart', JSON.stringify(productList))
             commit('SET_CART', productList)
         },
-        reduceCart({ commit, dispatch }, id) {
+        reduceCart({ commit }, id) {
             const cartStr = localStorage.getItem('cart')
             let productList = JSON.parse(cartStr) || []
-            for (let item of productList) {
+            let newAmount = 0
+            let index = 0
+            productList.map((item, ind) => {
                 if (item.id == id) {
-                    if (item.amount == 0) {
-                        dispatch('removeCart', id)
-                    } else {
-                        item.amount = item.amount - 1
-                    }
+                    item.amount = item.amount - 1
+                    newAmount = item.amount
+                    index = ind
                 }
+            })
+            if(newAmount == 0) {
+                productList.splice(index, 1)
             }
             localStorage.setItem('cart', JSON.stringify(productList))
             commit('SET_CART', productList)
@@ -49,9 +52,9 @@ export default new Vuex.Store({
         removeCart({ commit }, id) {
             const cartStr = localStorage.getItem('cart')
             let productList = JSON.parse(cartStr) || []
-            productList = productList.filter(item => item.id != id)
-            localStorage.setItem('cart', JSON.stringify(productList))
-            commit('SET_CART', productList)
+            let list = productList.filter(item => item.id != id)
+            localStorage.setItem('cart', JSON.stringify(list))
+            commit('SET_CART', list)
         },
         clearCart({ commit }) {
             localStorage.setItem('cart', '[]')
