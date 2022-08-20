@@ -61,9 +61,7 @@ export default {
     }
   },
   mounted(){
-    getUserIP((ip) => {
-        console.log(ip)
-      })
+      getUserIP()
   },
   methods: {
     changeAmount(type, id){
@@ -85,7 +83,6 @@ export default {
         a: 1,
         b: 2
       }))
-
     }
   }
 }
