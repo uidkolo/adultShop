@@ -30,13 +30,14 @@
         <span class="amount">共<span class="value">{{cart.length}}</span>件商品</span>
         <span class="price">合计：<span class="unit">￥</span><span class="value">{{totalPrice}}</span></span>
       </div>
-      <div class="pay">结算</div>
+      <div class="pay" @click="pay">结算</div>
     </div>
   </div>
 </template>
 
 <script>
 import { getDetail } from "@/product"
+import { sign, getUserIP } from '@/utils/utils'
 export default {
   name: 'VueCart',
   computed: {
@@ -59,6 +60,11 @@ export default {
       return total.toFixed(2)
     }
   },
+  mounted(){
+    getUserIP((ip) => {
+        console.log(ip)
+      })
+  },
   methods: {
     changeAmount(type, id){
       if(type == 'add') this.$store.dispatch('addCart', id)
@@ -66,6 +72,20 @@ export default {
     },
     del(id){
       this.$store.dispatch('removeCart', id)
+    },
+    pay(){
+      // const api_id = '4292760'
+      // const key = '3083097A905458E34E3BBACAFD93AFBD'
+      // const orderid = +new Date()
+      // const money = this.totalPrice
+      // const notify_url = 'https://www.baidu.com'
+      // const return_url = 'https://www.baidu.com'
+      // const url = 'https://www.xmhongqu.com/api/pay'
+      console.log(sign({
+        a: 1,
+        b: 2
+      }))
+
     }
   }
 }
@@ -75,7 +95,7 @@ export default {
 .cart{
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 60px;
+  padding-bottom: 70px;
   .list{
     padding: 10px;
   }
@@ -160,6 +180,12 @@ export default {
     }
   }
   .bottom{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
     background: white;
     display: flex;
     align-items: center;

@@ -12,11 +12,11 @@
         <div class="info-top">
           <div class="price">
             <span class="unit">￥</span>
-            <span class="value">188.00</span>
+            <span class="value">{{detail.price}}</span>
           </div>
-          <span class="residue">剩余：4</span>
+          <span class="residue">剩余：{{detail.residue}}</span>
         </div>
-        <h4 class="name">OTOUCH 魅惑口爱锻炼行飞机杯[QZ1887]魅惑口爱锻炼行飞机杯[QZ1887]</h4>
+        <h4 class="name">{{detail.name}}</h4>
         <div class="key">
           <div class="item">刺激度1星</div>
           <div class="item">口爱</div>
@@ -39,12 +39,16 @@
           <span>品牌信誉</span>
         </div>
       </div>
+
+      <div class="intro">
+        <div class="item" v-for="(item, index) of detail.params" :key="index">
+          <span class="label">{{item.label}}</span>
+          <span class="value">{{item.value}}</span>
+        </div>
+      </div>
+
     </div>
     <div class="bottom">
-      <div class="cart">
-        <img class="icon" src="../assets/icon_cart_gray.png" alt="">
-        <span>购物车</span>
-      </div>
       <div class="btns">
         <div class="btn go">去结算</div>
         <div class="btn join">加入购物车</div>
@@ -178,6 +182,28 @@ export default {
         }
       }
     }
+
+    .intro{
+      background: white;
+      margin-top: 5px;
+      padding: 10px 20px;
+      .item{
+        display: flex;
+        font-size: 14px;
+        &+.item{
+          margin-top: 10px;
+        }
+        .label{
+          flex-shrink: 0;
+          color: #999;
+          width: 100px;
+        }
+        .value{
+          flex-grow: 1;
+          color: #333;
+        }
+      }
+    }
   }
   .bottom{
     position: fixed;
@@ -190,23 +216,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    .cart{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 10px;
-      flex-shrink: 0;
-      .icon{
-        width: 20px;
-        height: 20px;
-      }
-    }
+    padding: 0 10px;
     .btns{
       flex-grow: 1;
       display: flex;
       align-items: center;
-      margin-left: 20px;
       .btn{
         height: 40px;
         line-height: 40px;
