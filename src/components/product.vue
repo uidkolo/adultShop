@@ -8,7 +8,7 @@
               <span class="value">{{product.price}}</span>
           </div>
           <div class="cart" @click="add(product.id)">
-              <img class="icon" :src="require('@/assets/icon_cart.png')" alt="">
+              <van-icon name="shopping-cart-o" size="20" color="#ff5b04" />
           </div>
       </div>
   </div>
@@ -76,7 +76,6 @@ export default {
           width: 26px;
           height: 26px;
           border-radius: 50%;
-          background: #de95ba;
           display: flex;
           align-items: center;
           justify-content: center;

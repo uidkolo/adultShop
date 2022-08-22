@@ -1,19 +1,24 @@
 <template>
   <section class="app-main">
     <div class="head">
-      <div class="back" v-if="showBack" @click="$router.back()">
-        <img class="icon" src="../assets/back.png" alt="">
-        <span>返回</span>
+      <div class="name">
+        <img class="logo" src="../assets/logo.png" alt="" />
+        <span>橘色成人（{{shopName}}）</span>
       </div>
-      <img class="logo" src="../assets/logo.png" alt="">
-      <div class="h24">
+      <!-- <div class="h24">
         <img src="../assets/24h.png" alt="">
-      </div>
+      </div> -->
     </div>
-    <div class="box" :class="{ hideNavbar: showNavbar }">
-      <nav-bar v-if="showNavbar" />
+    <div class="notice">
+      <van-notice-bar
+        left-icon="volume-o"
+        text="橘色成人面向全国招商加盟，拥有全国1000多家门店，橘色是中国性健康行业的领航者，股票代码837125，加盟热线400-810-0088"
+      />
+    </div>
+    <div class="box">
+      <nav-bar/>
       <div class="container">
-        <transition name="fade-transform" mode="out-in">
+        <transition name="fade">
           <router-view />
         </transition>
       </div>
@@ -23,62 +28,65 @@
 
 <script>
 import NavBar from '../components/navbar'
+import { generateShopName } from '@/utils/utils'
 export default {
   name: 'VueLayout',
   components: { NavBar },
   computed: {
     pageName(){
       return this.$route.name
-    },
-    showBack(){
-       return ['cart', 'detail'].includes(this.pageName)
-    },
-    showNavbar(){
-      const result = ['cart', 'detail'].includes(this.pageName)
-      return !result
-    },
+    }
   },
+  data(){
+    return {
+      shopName: ''
+    }
+  },
+  mounted(){
+    this.getShopName()
+  },
+  methods: {
+    async getShopName(){
+      const name = await generateShopName()
+      this.shopName = name
+    }
+  }
 }
 </script>
+
+<style lang="scss">
+.fade-enter-active, .fade-leave-active {
+    transition: all .3s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0.5;
+}
+</style>
 
 <style lang="scss" scoped>
 .app-main {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 50px calc(100% - 50px);
+  grid-template-rows: 50px 40px calc(100% - 90px);
   .head{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: #222831;
     font-size: 18px;
     color: white;
     line-height: 50px;
     text-align: center;
     position: relative;
-    .back{
-      height: 50px;
-      padding: 0 5px;
-      color: #cdcdcd;
-      font-size: 14px;
-      position: absolute;
-      left: 0;
+    padding: 0 10px;
+    .name{
       display: flex;
       align-items: center;
-      justify-content: center;
-      span{
-        color: white;
-        margin-left: 5px;
+      .logo{
+        height: 30px;
+        margin-right: 10px;
       }
-      .icon{
-        height: 16px;
-        position: relative;
-        bottom: 1px;
-      }
-    }
-    .logo{
-      height: 40px;
     }
     .h24{
       flex-grow: 1;
@@ -95,13 +103,10 @@ export default {
   .box{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 90px calc(100% - 90px);
     .container{
       overflow-y: auto;
     }
-  }
-  .hideNavbar{
-    grid-template-columns: 90px calc(100% - 90px);
   }
 }
 </style>

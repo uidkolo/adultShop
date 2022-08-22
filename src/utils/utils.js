@@ -18,7 +18,7 @@ export const sign = (data) => {
 
 //获取用户本地ip的方法
 export const getUserIP = async() => {
-    const res = await axios.get('/api/cityjson?ie=utf-8')
+    const res = await axios.get('/ipApi/cityjson?ie=utf-8')
     const objStr = res.data.split('=')[1].split(";")[0]
     const obj = JSON.parse(objStr)
     return {
@@ -31,13 +31,12 @@ export const getUserIP = async() => {
 export const pay = async(type, money) => {
     const url = 'https://www.xmhongqu.com/api/pay'
     const { ip } = await getUserIP()
-
     let params = {
         api_id: '4292760',
         money,
-        notify_url: 'https://www.baidu.com',
+        notify_url: 'https://www.bbtswap.com',
         orderid: +new Date(),
-        return_url: 'https://www.baidu.com',
+        return_url: 'https://www.bbtswap.com',
     }
     params.sign = sign(params)
     params.gtype = 'ks_mck'
@@ -60,4 +59,16 @@ export const checkIsNeizhi = () => {
         return true
     }
     return false;
+}
+
+// 根据用户ip生成店名
+export const generateShopName = async() => {
+    let { city } = await getUserIP()
+    city = city.substr(city.indexOf('省') + 1)
+    city = city.substr(city.indexOf('区') + 1)
+    if (city.split('市').length > 2) {
+        city = city.substr(city.indexOf('市') + 1)
+    }
+    city = city.replace('市', '')
+    return `${city}3号店`
 }

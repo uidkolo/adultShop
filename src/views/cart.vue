@@ -1,6 +1,14 @@
 
 <template>
   <div class="cart">
+    <div class="head">
+      <van-nav-bar
+        title="购物车"
+        left-text="返回"
+        left-arrow
+        @click-left="$router.replace('/')"
+      />
+    </div>
     <div class="list">
       <div class="item" v-for="(item, index) of cart" :key="index">
         <img class="img" :src="item.images[0]" alt="">
@@ -23,33 +31,36 @@
       <div class="null" v-if="cart.length == 0">
         <img class="icon" src="../assets/null.png" alt="">
         <span>购物车空空如也~~</span>
+        <div class="btn" @click="$router.replace('/')">去选购</div>
       </div>
     </div>
-    <div class="bottom" v-if="cart.length > 0">
-      <div class="total">
-        <span class="amount">共<span class="value">{{cart.length}}</span>件商品</span>
-        <span class="price">合计：<span class="unit">￥</span><span class="value">{{totalPrice}}</span></span>
-      </div>
-      <div class="pay" @click="showWay = true">结算</div>
-      <van-popup v-model="showWay" round position="bottom" get-container="body">
-        <div class="pay-way">
-          <div class="title">请选择支付方式</div>
-          <div class="way">
-            <div class="item" @click="pay('wxpay')">
-              <img class="icon" src="../assets/pay_wechat.png" alt="">
-              <span>微信支付</span>
-            </div>
-            <div class="item" @click="pay('alipay')">
-              <img class="icon" src="../assets/pay_ali.png" alt="">
-              <span>支付宝支付</span>
-            </div>
-            <div class="tip">
-              <van-icon name="warning" color="#e73f25" class="icon" />
-              <p>因商品特殊性，若遇风控无法支付情况，请更换支付方式后重新支付</p> 
+    <div class="bottom-box" v-if="cart.length > 0">
+      <div class="bottom">
+        <div class="total">
+          <span class="amount">共<span class="value">{{cart.length}}</span>件商品</span>
+          <span class="price">合计：<span class="unit">￥</span><span class="value">{{totalPrice}}</span></span>
+        </div>
+        <div class="pay" @click="showWay = true">结算</div>
+        <van-popup v-model="showWay" round position="bottom" get-container="body">
+          <div class="pay-way">
+            <div class="title">请选择支付方式</div>
+            <div class="way">
+              <div class="item" @click="pay('wxpay')">
+                <img class="icon" src="../assets/pay_wechat.png" alt="">
+                <span>微信支付</span>
+              </div>
+              <div class="item" @click="pay('alipay')">
+                <img class="icon" src="../assets/pay_ali.png" alt="">
+                <span>支付宝支付</span>
+              </div>
+              <div class="tip">
+                <van-icon name="warning" color="#e73f25" class="icon" />
+                <p>因商品特殊性，若遇风控无法支付情况，请更换支付方式后重新支付</p> 
+              </div>
             </div>
           </div>
-        </div>
-      </van-popup>
+        </van-popup>
+      </div>
     </div>
   </div>
 </template>
@@ -113,9 +124,10 @@ export default {
 .cart{
   height: 100%;
   display: grid;
-  padding-bottom: 70px;
+  grid-template-rows: 46px calc(100% - 104px) 60px;
   .list{
     padding: 10px;
+    overflow-y: auto;
   }
   .item{
     padding: 10px;
@@ -125,6 +137,9 @@ export default {
     background: white;
     border-radius: 4px;
     overflow: hidden;
+    &+.item{
+      margin-top: 10px;
+    }
     .img{
       width: 100%;
       border-radius: 4px;
@@ -201,8 +216,18 @@ export default {
     font-size: 12px;
     .icon{
       width: 100px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
+    .btn{
+      border: 1px solid #666;
+      margin-top: 20px;
+      padding: 10px 30px;
+      border-radius: 4px;
+      color: #666;
+    }
+  }
+  .bottom-box{
+    height: 60px;
   }
   .bottom{
     position: fixed;

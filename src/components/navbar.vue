@@ -47,7 +47,7 @@
     <div class="bottom">
       <router-link class="cart" to="/cart" key="cart">
         <div class="number" v-if="cart.length > 0">{{cart.length}}</div>
-        <img class="icon" :src="require('@/assets/icon_cart.png')" alt="">
+        <van-icon name="shopping-cart-o" size="30" color="#ffffff" />
       </router-link>
     </div>
   </div>
@@ -110,10 +110,10 @@ export default {
       &.active{
         span{
           font-weight: bold;
-          color: #de95ba;
+          color: #ff5b04;
         }
         .box{
-          border-left: 3px solid #de95ba;
+          border-left: 3px solid #ff5b04;
         }
       }
     }
@@ -125,7 +125,7 @@ export default {
       height: 50px;
       border-radius: 50%;
       position: relative;
-      background: #de95ba;
+      background: #ff5b04;
       display: flex;
       align-items: center;
       justify-content: center;

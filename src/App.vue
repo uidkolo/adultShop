@@ -1,8 +1,19 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
+
+<style lang="scss">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0.8;
+}
+</style>
 
 <style lang="scss">
 *{
@@ -20,16 +31,14 @@ html,body,#app{
   color: #333;
 }
 
-.color-1{
-  color: #4a266a;
+.van-nav-bar__left, .van-nav-bar__right{
+  padding: 0 10px;
 }
-.color-2{
-  color: #7f4a88;
+.van-nav-bar__text{
+  color: #666;
 }
-.color-3{
-  color: #7f4a88;
+.van-nav-bar .van-icon{
+  color: #666;
 }
-.color-4{
-  color: #ffd9e8;
-}
+
 </style>

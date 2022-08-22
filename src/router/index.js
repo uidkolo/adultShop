@@ -71,28 +71,20 @@ const routes = [{
     },
     {
         path: '/cart',
-        component: Layout,
-        children: [{
-            path: '',
-            component: () =>
-                import ('../views/cart.vue'),
-            name: 'cart'
-        }]
+        component: () =>
+            import ('../views/cart.vue'),
+        name: 'cart'
     },
     {
         path: '/detail',
-        component: Layout,
-        children: [{
-            path: '',
-            component: () =>
-                import ('../views/detail.vue'),
-            name: 'detail'
-        }]
+        component: () =>
+            import ('../views/detail.vue'),
+        name: 'detail'
     }
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     base: process.env.BASE_URL,
     routes
 })

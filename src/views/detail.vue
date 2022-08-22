@@ -1,6 +1,14 @@
 
 <template>
   <div class="detail">
+    <div class="head">
+      <van-nav-bar
+        title="商品详情"
+        left-text="返回"
+        left-arrow
+        @click-left="$router.replace('/')"
+      />
+    </div>
     <div class="content">
       <swiper :options="swiperOption" ref="mySwiper">
           <swiper-slide v-for="(img, index) in detail.images" :key="index">
@@ -45,13 +53,15 @@
       </div>
 
     </div>
-    <div class="bottom">
-      <div class="btns">
-        <router-link class="btn go" to="/cart" replace key="cart">
-          <span>去结算</span>
-          <span v-if="cart.length>0">（{{cart.length}}）</span>  
-        </router-link>
-        <div class="btn join" @click="addCart">加入购物车</div>
+    <div class="bottom-box">
+      <div class="bottom">
+        <div class="btns">
+          <router-link class="btn go" to="/cart" replace key="cart">
+            <span>去结算</span>
+            <span v-if="cart.length>0">（{{cart.length}}）</span>  
+          </router-link>
+          <div class="btn join" @click="addCart">加入购物车</div>
+        </div>
       </div>
     </div>
   </div>
@@ -111,9 +121,11 @@ export default {
 <style scoped lang="scss">
 .detail{
   height: 100%;
-  width: 100%;
+  display: grid;
+  grid-template-rows: 46px calc(100% - 116px) 70px;
   .content{
-    padding-bottom: 80px;
+    padding-bottom: 10px;
+    overflow-y: auto;
     .swiper-img{
       width: 100%;
       display: block;
@@ -213,6 +225,9 @@ export default {
         }
       }
     }
+  }
+  .bottom-box{
+    height: 70px;
   }
   .bottom{
     position: fixed;
