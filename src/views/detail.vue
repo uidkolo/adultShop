@@ -18,25 +18,22 @@
         </div>
         <h4 class="name">{{detail.name}}</h4>
         <div class="key">
-          <div class="item">刺激度1星</div>
-          <div class="item">口爱</div>
-          <div class="item">杯子</div>
-          <div class="item">持久</div>
+          <div class="item" v-for="(item,index) of detail.keys" :key="index">{{item}}</div>
         </div>
       </div>
       <div class="service">
         <div class="label">服务</div>
         <div class="item">
           <img class="icon" src="../assets/icon_service.png" alt="">
-          <span>正品保证</span>
+          <span>100%正品</span>
+        </div>
+        <div class="item">
+          <img class="icon" src="../assets/icon_service.png" alt="">
+          <span>品牌授权</span>
         </div>
         <div class="item">
           <img class="icon" src="../assets/icon_service.png" alt="">
           <span>安全材质</span>
-        </div>
-        <div class="item">
-          <img class="icon" src="../assets/icon_service.png" alt="">
-          <span>品牌信誉</span>
         </div>
       </div>
 
@@ -50,8 +47,11 @@
     </div>
     <div class="bottom">
       <div class="btns">
-        <div class="btn go">去结算</div>
-        <div class="btn join">加入购物车</div>
+        <router-link class="btn go" to="/cart" replace key="cart">
+          <span>去结算</span>
+          <span v-if="cart.length>0">（{{cart.length}}）</span>  
+        </router-link>
+        <div class="btn join" @click="addCart">加入购物车</div>
       </div>
     </div>
   </div>
@@ -67,9 +67,14 @@ export default {
     swiper,
     swiperSlide
   },
+  computed: {
+    cart(){
+      return this.$store.state.cart || []
+    }
+  },
   data(){
     return {
-      detail: null,
+      detail: {},
       swiperOption: {
         loop: true,
         pagination: {
@@ -86,6 +91,10 @@ export default {
     getDetail(){
       const detail = getDetail(this.$route.query.id)
       this.detail = detail
+    },
+    addCart(){
+      this.$store.dispatch('addCart', this.detail.id)
+      this.$toast.success('已加入购物车')
     }
   }
 }
@@ -93,7 +102,7 @@ export default {
 
 <style>
 .swiper-pagination-bullet-active{
-  background: #222831;
+  background: #e84a5f;
 }
 .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
   bottom: 20px
@@ -104,7 +113,7 @@ export default {
   height: 100%;
   width: 100%;
   .content{
-    padding-bottom: 70px;
+    padding-bottom: 80px;
     .swiper-img{
       width: 100%;
       display: block;
@@ -147,15 +156,15 @@ export default {
       .key{
         display: flex;
         align-items: center;
-        margin-top: 10px;
         font-size: 14px;
+        flex-wrap: wrap;
         .item{
+          margin-top: 10px;
           background: #f6f6f6;
           padding: 4px 10px;
           border-radius: 4px;
-          &+.item{
-            margin-left: 10px;
-          }
+          flex-shrink: 0;
+          margin-right: 10px;
         }
       }
     }
@@ -208,7 +217,7 @@ export default {
   .bottom{
     position: fixed;
     width: 100%;
-    height: 60px;
+    height: 70px;
     bottom: 0;
     left: 0;
     z-index: 9;
@@ -222,8 +231,8 @@ export default {
       display: flex;
       align-items: center;
       .btn{
-        height: 40px;
-        line-height: 40px;
+        height: 50px;
+        line-height: 50px;
         width: 50%;
         text-align: center;
         font-size: 16px;
@@ -232,6 +241,9 @@ export default {
       .go{
         background: linear-gradient(to right, #ffc706, #fd9b04);
         border-radius: 40px 0 0 40px;
+        span{
+          color: white;
+        }
       }
       .join{
         background: linear-gradient(to right, #e84a5f, #c94052);

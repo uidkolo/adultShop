@@ -1,6 +1,6 @@
 
 <template>
-  <div class="woman">
+  <div class="list">
     <product v-for="(item, index) of list" :product="item" :key="index" />
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.woman{
+.list{
   padding: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;

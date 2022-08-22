@@ -30,14 +30,33 @@
         <span class="amount">共<span class="value">{{cart.length}}</span>件商品</span>
         <span class="price">合计：<span class="unit">￥</span><span class="value">{{totalPrice}}</span></span>
       </div>
-      <div class="pay" @click="pay">结算</div>
+      <div class="pay" @click="showWay = true">结算</div>
+      <van-popup v-model="showWay" round position="bottom" get-container="body">
+        <div class="pay-way">
+          <div class="title">请选择支付方式</div>
+          <div class="way">
+            <div class="item" @click="pay('wxpay')">
+              <img class="icon" src="../assets/pay_wechat.png" alt="">
+              <span>微信支付</span>
+            </div>
+            <div class="item" @click="pay('alipay')">
+              <img class="icon" src="../assets/pay_ali.png" alt="">
+              <span>支付宝支付</span>
+            </div>
+            <div class="tip">
+              <van-icon name="warning" color="#e73f25" class="icon" />
+              <p>因商品特殊性，若遇风控无法支付情况，请更换支付方式后重新支付</p> 
+            </div>
+          </div>
+        </div>
+      </van-popup>
     </div>
   </div>
 </template>
 
 <script>
 import { getDetail } from "@/product"
-import { sign, getUserIP } from '@/utils/utils'
+import { pay } from '@/utils/utils'
 export default {
   name: 'VueCart',
   computed: {
@@ -60,8 +79,10 @@ export default {
       return total.toFixed(2)
     }
   },
-  mounted(){
-      getUserIP()
+  data(){
+    return {
+      showWay: false
+    }
   },
   methods: {
     changeAmount(type, id){
@@ -71,18 +92,18 @@ export default {
     del(id){
       this.$store.dispatch('removeCart', id)
     },
-    pay(){
-      // const api_id = '4292760'
-      // const key = '3083097A905458E34E3BBACAFD93AFBD'
-      // const orderid = +new Date()
-      // const money = this.totalPrice
-      // const notify_url = 'https://www.baidu.com'
-      // const return_url = 'https://www.baidu.com'
-      // const url = 'https://www.xmhongqu.com/api/pay'
-      console.log(sign({
-        a: 1,
-        b: 2
-      }))
+    async pay(type){
+      this.showWay = false
+      this.$toast.loading({
+        message: '正在支付',
+        forbidClick: true
+      })
+      const { code, reallink } = await pay(type, this.totalPrice)
+      if(code === 0) {
+        window.open(reallink, '_blank')
+      } else {
+        this.$toast.fail('支付失败')
+      }
     }
   }
 }
@@ -115,6 +136,13 @@ export default {
       .name{
         font-size: 16px;
         text-align: justify;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+        display: -webkit-box;
+        display: box;
       }
       .price{
           .unit{
@@ -222,6 +250,53 @@ export default {
       border-radius: 40px;
       line-height: 40px;
       text-align: center;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.pay-way{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title{
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: bold;
+  }
+  .way {
+    padding: 0 20px 20px;
+    width: 100%;
+    .item{
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+      background: #f6f6f6;
+      width: 100%;
+      &+.item{
+        margin-top: 10px;
+      }
+      .icon{
+        width: 30px;
+        margin-right: 10px;
+      }
+    }
+    .tip{
+      margin-top: 20px;
+      display: flex;
+      p{
+        font-size: 14px;
+        color: #666;
+      }
+      .icon{
+        position: relative; 
+        top:2px;
+        margin-right: 5px;
+      }
     }
   }
 }

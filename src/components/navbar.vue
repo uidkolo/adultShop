@@ -63,9 +63,6 @@ export default {
     cart(){
       return this.$store.state.cart || []
     }
-  },
-  mounted(){
-    console.log(this.cart)
   }
 }
 </script>
@@ -95,6 +92,9 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        span{
+          color: #666;
+        }
       }
       img{
         width: 24px;

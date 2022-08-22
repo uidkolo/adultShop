@@ -14,9 +14,7 @@
       <nav-bar v-if="showNavbar" />
       <div class="container">
         <transition name="fade-transform" mode="out-in">
-          <keep-alive>
-            <router-view />
-          </keep-alive>
+          <router-view />
         </transition>
       </div>
     </div>

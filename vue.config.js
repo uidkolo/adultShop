@@ -1,13 +1,13 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
     transpileDependencies: true,
-    dec: {
-        proxyTable: {
+    devServer: {
+        proxy: {
             '/api': {
                 target: 'http://pv.sohu.com',
                 changeOrigin: true,
                 pathRewrite: {
-                    "^/api": ''
+                    '^/api': ''
                 }
             }
         }

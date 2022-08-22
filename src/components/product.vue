@@ -1,6 +1,6 @@
 <template>
   <div class="product-item">
-      <img class="img" :src="product.images[1]" @click="toDetail">
+      <img class="img" :src="product.images[0]" @click="toDetail">
       <div class="name">{{product.name}}</div>
       <div class="info">
           <div class="price">
@@ -23,6 +23,7 @@ export default {
   methods:{
       add(id){
         this.$store.dispatch('addCart', id)
+        this.$toast.success('已加入购物车')
       },
       toDetail(){
           this.$router.push({
