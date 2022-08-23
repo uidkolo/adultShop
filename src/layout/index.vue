@@ -18,8 +18,10 @@
     <div class="box">
       <nav-bar/>
       <div class="container">
-        <transition name="fade">
-          <router-view />
+        <transition name="tab">
+          <keep-alive>
+            <router-view />
+          </keep-alive>
         </transition>
       </div>
     </div>
@@ -55,11 +57,11 @@ export default {
 </script>
 
 <style lang="scss">
-.fade-enter-active, .fade-leave-active {
-    transition: all .3s;
+.tab-enter-active, .tab-leave-active {
+    transition: all .2s;
 }
-.fade-enter, .fade-leave-to {
-    opacity: 0.5;
+.tab-enter, .tab-leave-to {
+    opacity: 0.6;
 }
 </style>
 

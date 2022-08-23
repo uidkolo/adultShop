@@ -7,15 +7,6 @@
 </template>
 
 <style lang="scss">
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-    opacity: 0.8;
-}
-</style>
-
-<style lang="scss">
 *{
   margin: 0;
   padding: 0;
@@ -31,6 +22,15 @@ html,body,#app{
   color: #333;
 }
 
+#app{
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .3s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0.6;
+  }
+}
+
 .van-nav-bar__left, .van-nav-bar__right{
   padding: 0 10px;
 }
@@ -40,5 +40,6 @@ html,body,#app{
 .van-nav-bar .van-icon{
   color: #666;
 }
+
 
 </style>

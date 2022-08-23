@@ -44,7 +44,7 @@ export default {
     overflow: hidden;
   .img{
       width: 100%;
-      height: 160px;
+      height: auto;
       display: block;
   }
   .name{

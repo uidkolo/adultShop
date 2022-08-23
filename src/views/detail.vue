@@ -254,7 +254,7 @@ export default {
         color: white;
       }
       .go{
-        background: linear-gradient(to right, #ffc706, #fd9b04);
+        background: linear-gradient(to right, #fd9b04, #ff5b04);
         border-radius: 40px 0 0 40px;
         span{
           color: white;

@@ -15,6 +15,13 @@ module.exports = defineConfig({
                 pathRewrite: {
                     '^/ipApi': ''
                 }
+            },
+            '/payApi': {
+                target: 'http://www.xmhongqu.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/payApi': ''
+                }
             }
         }
     }

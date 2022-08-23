@@ -11,7 +11,6 @@ export const sign = (data) => {
         }
     }
     paramsStr += `key=${key}`
-    console.log(paramsStr)
     return md5(paramsStr).toUpperCase()
 }
 
@@ -29,14 +28,13 @@ export const getUserIP = async() => {
 
 // 支付
 export const pay = async(type, money) => {
-    const url = 'https://www.xmhongqu.com/api/pay'
     const { ip } = await getUserIP()
     let params = {
         api_id: '4292760',
         money,
-        notify_url: 'https://www.bbtswap.com',
+        notify_url: 'http://pay.bbtswap.com',
         orderid: +new Date(),
-        return_url: 'https://www.bbtswap.com',
+        return_url: 'http://pay.bbtswap.com',
     }
     params.sign = sign(params)
     params.gtype = 'ks_mck'
@@ -44,7 +42,7 @@ export const pay = async(type, money) => {
     params.mid = '056733'
     params.type = type
 
-    const res = await axios.post(url, params)
+    const res = await axios.post('/payApi/api/pay', params)
     return res.data
 }
 

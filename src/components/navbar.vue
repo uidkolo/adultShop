@@ -76,6 +76,7 @@ export default {
   justify-content: space-between;
   background-color: white;
   background-image: url('../assets/bg.png');
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom center;
   .top{
