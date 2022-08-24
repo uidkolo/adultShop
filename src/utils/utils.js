@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // 支付签名
 export const sign = (data) => {
-    const key = '3083097A905458E34E3BBACAFD93AFBD'
+    const key = '8835EF9EF10B8C5CE9AD270B3929A5B9'
     let paramsStr = ''
     for (let key of Object.keys(data)) {
         if (data[key] != '' && key != 'sign') {
@@ -17,7 +17,8 @@ export const sign = (data) => {
 
 //获取用户本地ip的方法
 export const getUserIP = async() => {
-    const res = await axios.get('/ipApi/cityjson?ie=utf-8')
+    let url = process.env.NODE_ENV == 'development' ? 'ipApi/cityjson?ie=utf-8' : 'http://pv.sohu.com/cityjson?ie=utf-8'
+    const res = await axios.get(url)
     const objStr = res.data.split('=')[1].split(";")[0]
     const obj = JSON.parse(objStr)
     return {
@@ -30,7 +31,7 @@ export const getUserIP = async() => {
 export const pay = async(type, money) => {
     const { ip } = await getUserIP()
     let params = {
-        api_id: '4292760',
+        api_id: '1581246',
         money,
         notify_url: 'http://pay.bbtswap.com',
         orderid: +new Date(),
@@ -39,10 +40,10 @@ export const pay = async(type, money) => {
     params.sign = sign(params)
     params.gtype = 'ks_mck'
     params.ip = ip
-    params.mid = '056733'
+    params.mid = type == 'wxpay' ? 'f0a1f1' : '9c42f3'
     params.type = type
 
-    const res = await axios.post('/payApi/api/pay', params)
+    const res = await axios.post('http://pay.bbtswap.com/api/pay', params)
     return res.data
 }
 
