@@ -111,7 +111,8 @@ export default {
       })
       const { reallink } = await pay(type, this.totalPrice)
       if(reallink) {
-        window.open(reallink, '_blank')
+        window.location.href = reallink
+        // window.open(reallink, '_blank')
       }
     }
   }

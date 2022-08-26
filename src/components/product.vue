@@ -1,6 +1,12 @@
 <template>
-  <div class="product-item">
-      <img class="img" :src="product.images[0]" @click="toDetail">
+  <div class="product-item" ref="product">
+      <van-image
+        :width="width"
+        :height="height"
+        :src="product.images[0]"
+        lazy-load
+        @click="toDetail"
+        />
       <div class="name">{{product.name}}</div>
       <div class="info">
           <div class="price">
@@ -19,6 +25,16 @@ export default {
   name: 'ProductItem',
   props: {
       product: Object
+  },
+  data(){
+    return {
+        width: '100%',
+        height: '150px'
+    }
+  },
+  mounted(){
+    this.width = this.$refs.product.offsetWidth
+    this.height = this.$refs.product.offsetWidth
   },
   methods:{
       add(id){
