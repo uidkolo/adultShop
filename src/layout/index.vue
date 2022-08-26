@@ -3,7 +3,7 @@
     <div class="head">
       <div class="name">
         <img class="logo" src="../assets/logo.png" alt="" />
-        <span>橘色成人（{{shopName}}）</span>
+        <span>橘色成人{{shopName}}</span>
       </div>
       <!-- <div class="h24">
         <img src="../assets/24h.png" alt="">
@@ -30,14 +30,14 @@
 
 <script>
 import NavBar from '../components/navbar'
-import { generateShopName } from '@/utils/utils'
+import { getLocation } from '@/apis/index'
 export default {
   name: 'VueLayout',
   components: { NavBar },
   computed: {
     pageName(){
       return this.$route.name
-    }
+    },
   },
   data(){
     return {
@@ -45,12 +45,17 @@ export default {
     }
   },
   mounted(){
-    this.getShopName()
+    this.getLocation()
   },
   methods: {
-    async getShopName(){
-      const name = await generateShopName()
-      this.shopName = name
+    async getLocation(){
+      let { city } = await getLocation()
+      city = city.substr(city.indexOf('区') + 1)
+      if (city.split('市').length > 2) {
+          city = city.substr(city.indexOf('市') + 1)
+      }
+      city = city.replace('市', '')
+      this.shopName = `（${city}3号店）`
     }
   }
 }

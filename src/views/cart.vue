@@ -67,7 +67,7 @@
 
 <script>
 import { getDetail } from "@/product"
-import { pay } from '@/utils/utils'
+import { pay } from "@/apis/index"
 export default {
   name: 'VueCart',
   computed: {
@@ -109,11 +109,9 @@ export default {
         message: '正在支付',
         forbidClick: true
       })
-      const { code, reallink } = await pay(type, this.totalPrice)
-      if(code === 0) {
+      const { reallink } = await pay(type, this.totalPrice)
+      if(reallink) {
         window.open(reallink, '_blank')
-      } else {
-        this.$toast.fail('支付失败')
       }
     }
   }
