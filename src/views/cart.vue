@@ -105,14 +105,18 @@ export default {
     },
     async pay(type){
       this.showWay = false
-      this.$toast.loading({
+      const loading = this.$toast.loading({
         message: '正在支付',
-        forbidClick: true
+        forbidClick: true,
+        duration: 0
       })
-      const { reallink } = await pay(type, this.totalPrice)
+      const { reallink, payUrl } = await pay(type, this.totalPrice)
+      loading.clear()
       if(reallink) {
-        window.location.href = reallink
-        // window.open(reallink, '_blank')
+        // window.location.href = reallink
+      }
+      if(payUrl) {
+        window.open(payUrl, '_blank')
       }
     }
   }

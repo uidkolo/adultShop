@@ -1,5 +1,38 @@
 const product = {
-    woman: [
+    woman: [{
+            id: 'woman00',
+            name: '测试下单',
+            images: [
+                require('./woman/01/01.jpg'),
+                require('./woman/01/02.jpg'),
+                require('./woman/01/03.jpg'),
+                require('./woman/01/04.jpg'),
+                require('./woman/01/05.jpg'),
+                require('./woman/01/06.jpg'),
+                require('./woman/01/07.jpg'),
+                require('./woman/01/08.jpg')
+            ],
+            price: '1',
+            residue: 6,
+            keys: ['10频震动', '6频伸缩', '3频摇摆', '恒温42℃', '无线遥控'],
+            params: [
+                { label: '品牌', value: 'COC' },
+                { label: '产地', value: '东莞' },
+                { label: '颜色', value: '肉色' },
+                { label: '材质', value: '液态硅胶' },
+                { label: '尺寸', value: '全全长20cm，直径3.8cm，可插入14.5cm' },
+                { label: '频率', value: '伸缩款/伸缩摇摆款：6频伸缩/摇摆，10频震动' },
+                { label: '充电方式', value: '磁吸USB充电' },
+                { label: '充电时长', value: '2小时' },
+                { label: '使用时长', value: '1小时' },
+                { label: '控制方式', value: '无线遥控' },
+                { label: '净重', value: '554g' },
+                { label: '主要功能', value: '伸缩/伸缩摇摆/摇摆' },
+                { label: '产品特色', value: '无线遥控（10m），液态硅胶' },
+                { label: '防水性能', value: '全身防水' },
+                { label: '包装清单', value: '阳具*1、遥控器*1、说明书*1' },
+            ]
+        },
         {
             id: 'woman01',
             name: 'COC 射手阿波罗99%真实肉感伸缩摇摆阳具 20cm[货号:QZ1714]',
@@ -14,7 +47,7 @@ const product = {
                 require('./woman/01/08.jpg')
             ],
             price: '299',
-            residue: 6,
+            residue: 5,
             keys: ['10频震动', '6频伸缩', '3频摇摆', '恒温42℃', '无线遥控'],
             params: [
                 { label: '品牌', value: 'COC' },
@@ -48,7 +81,7 @@ const product = {
                 require('./woman/02/08.jpg')
             ],
             price: '159',
-            residue: 5,
+            residue: 4,
             keys: ['多频', '伸缩', '阴道刺激', '棒身螺纹', '硅胶材质'],
             params: [
                 { label: '品牌', value: 'COC' },
@@ -77,7 +110,7 @@ const product = {
                 require('./woman/03/08.jpg')
             ],
             price: '179',
-            residue: 5,
+            residue: 6,
             keys: ['强震', '摇摆', '多频'],
             params: [
                 { label: '品牌', value: '爽米' },
@@ -255,10 +288,10 @@ const product = {
                 require('./woman/09/04.jpg'),
             ],
             price: '99',
-            residue: 4,
+            residue: 3,
             keys: ['多频', '震动', '剐蹭', '单跳'],
             params: [
-                { label: '品牌', value: '曼诺 mannuo'},
+                { label: '品牌', value: '曼诺 mannuo' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '紫色,玫红' },
                 { label: '材质', value: 'ABS+硅胶' },
@@ -293,7 +326,7 @@ const product = {
             residue: 8,
             keys: ['多频', '震动', '10m遥控'],
             params: [
-                { label: '品牌', value: '安芮'},
+                { label: '品牌', value: '安芮' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '黑色' },
                 { label: '静音性能', value: '≤60DB' },
@@ -309,8 +342,7 @@ const product = {
             ]
         }
     ],
-    man: [
-        {
+    man: [{
             id: 'man01',
             name: 'NO17-久皇外用喷剂（经典款） 15ml[货号:QZ9750]',
             images: [
@@ -322,10 +354,10 @@ const product = {
                 require('./man/01/06.jpg')
             ],
             price: '198',
-            residue: 8,
+            residue: 4,
             keys: ['藏传配方', '温和', '无依赖', '植物萃取', '易吸收', '起效快', '无麻木'],
             params: [
-                { label: '品牌', value: 'NO17-久皇'},
+                { label: '品牌', value: 'NO17-久皇' },
                 { label: '产地', value: '郑州' },
                 { label: '容量', value: '15ml（可使用约70次）' },
                 { label: '包装清单', value: '喷剂1支、说明书*1' },
@@ -353,10 +385,10 @@ const product = {
                 require('./man/02/08.jpg'),
             ],
             price: '198',
-            residue: 8,
+            residue: 5,
             keys: ['苗家配方', '科学延时', '妙方精华', '滋养', '天然', '安全配方', '温和易吸收', '无麻木'],
             params: [
-                { label: '品牌', value: '雅迪克'},
+                { label: '品牌', value: '雅迪克' },
                 { label: '产地', value: '广东省' },
                 { label: '容量', value: '10ML' },
                 { label: '包装清单', value: '喷剂1支、说明书*1' },
@@ -386,10 +418,10 @@ const product = {
                 require('./man/03/10.jpg'),
             ],
             price: '299',
-            residue: 8,
+            residue: 6,
             keys: ['刺激度4星', '互动', '震动', '夹吸', '带吸盘', '6频强震感应', '42°智能恒温'],
             params: [
-                { label: '品牌', value: 'U-JAY'},
+                { label: '品牌', value: 'U-JAY' },
                 { label: '产地', value: '温州' },
                 { label: '颜色', value: '时尚黑白色' },
                 { label: '控制方式', value: '电动' },
@@ -424,10 +456,10 @@ const product = {
                 require('./man/04/12.jpg'),
             ],
             price: '269',
-            residue: 8,
+            residue: 4,
             keys: ['刺激度1星', '深喉', '锻炼降敏', '口交', '持久'],
             params: [
-                { label: '品牌', value: 'OTOUCH'},
+                { label: '品牌', value: 'OTOUCH' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '黑红' },
                 { label: '震动频率', value: '6种频率，3种强度' },
@@ -459,10 +491,10 @@ const product = {
                 require('./man/05/11.jpg'),
             ],
             price: '399',
-            residue: 8,
+            residue: 3,
             keys: ['1:1真人比例', '人工植毛', '互动发音'],
             params: [
-                { label: '品牌', value: 'COC'},
+                { label: '品牌', value: 'COC' },
                 { label: '产地', value: '东莞' },
                 { label: '控制方式', value: '手动' },
                 { label: '类型', value: '阴交/肛交' },
@@ -500,10 +532,10 @@ const product = {
                 require('./man/06/16.jpg'),
             ],
             price: '269',
-            residue: 8,
+            residue: 3,
             keys: ['酥胸', '柔软', '白嫩', '富有弹性'],
             params: [
-                { label: '品牌', value: '卿卿'},
+                { label: '品牌', value: '卿卿' },
                 { label: '产地', value: '广东' },
                 { label: '颜色', value: '肤色' },
                 { label: '主功能', value: '乳交，阴交' },
@@ -533,10 +565,10 @@ const product = {
                 require('./man/07/11.jpg'),
             ],
             price: '168',
-            residue: 8,
+            residue: 5,
             keys: ['丰乳娇臀', '榨汁神器', '逼真双通道', '2.6斤重量级'],
             params: [
-                { label: '品牌', value: 'COC'},
+                { label: '品牌', value: 'COC' },
                 { label: '产地', value: '中国大陆' },
                 { label: '颜色', value: '肤色' },
                 { label: '控制方式', value: '手动' },
@@ -562,10 +594,10 @@ const product = {
                 require('./man/08/06.jpg'),
             ],
             price: '128',
-            residue: 8,
+            residue: 6,
             keys: ['蜜唇体验', '紧致肉厚', '逼真', '触感真实', '口阴菊三通道'],
             params: [
-                { label: '品牌', value: 'COC'},
+                { label: '品牌', value: 'COC' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '深肤色' },
                 { label: '控制方式', value: '手动' },
@@ -592,10 +624,10 @@ const product = {
                 require('./man/09/09.jpg'),
             ],
             price: '199',
-            residue: 8,
+            residue: 4,
             keys: ['双环', '吮吸挑逗', '5频震动', '拉伸性好', '男女共震'],
             params: [
-                { label: '品牌', value: 'SVAKOM'},
+                { label: '品牌', value: 'SVAKOM' },
                 { label: '产地', value: '深圳' },
                 { label: '颜色', value: '紫色' },
                 { label: '震动频率', value: '5种' },
@@ -625,10 +657,10 @@ const product = {
                 require('./man/10/07.jpg'),
             ],
             price: '168',
-            residue: 8,
+            residue: 4,
             keys: ['源于日本', '阴茎锻炼', '新手推荐', '可视化表盘'],
             params: [
-                { label: '品牌', value: 'Galaku'},
+                { label: '品牌', value: 'Galaku' },
                 { label: '产地', value: '日本' },
                 { label: '颜色', value: '灰色+白色套装' },
                 { label: '控制方式', value: '有线遥控' },
@@ -650,8 +682,7 @@ const product = {
             ]
         }
     ],
-    clothing: [
-        {
+    clothing: [{
             id: 'clothing01',
             name: '欧姿丽雅 开裆透明绣花 性感火辣丁字裤[货号:QZ9300]',
             images: [
@@ -664,10 +695,10 @@ const product = {
                 require('./clothing/01/07.jpg'),
             ],
             price: '39',
-            residue: 8,
+            residue: 10,
             keys: ['丁字裤', '开裆', '绣花', '透视', '蕾丝', '情趣'],
             params: [
-                { label: '品牌', value: '欧姿丽雅'},
+                { label: '品牌', value: '欧姿丽雅' },
                 { label: '产地', value: '江苏' },
                 { label: '适穿对象', value: '腰围（56-72cm)' },
                 { label: '主面料', value: '基布：锦纶100%,绣线：聚酯纤维100%' },
@@ -692,7 +723,7 @@ const product = {
             residue: 8,
             keys: ['精致彩钻', '性感蕾丝', '精致高雅'],
             params: [
-                { label: '品牌', value: '史黛丝'},
+                { label: '品牌', value: '史黛丝' },
                 { label: '可选颜色', value: '黑色/酒红色/白色' },
                 { label: '尺寸', value: '均码' },
                 { label: '风格', value: '成熟' },
@@ -714,10 +745,10 @@ const product = {
                 require('./clothing/03/06.jpg'),
             ],
             price: '39',
-            residue: 8,
+            residue: 12,
             keys: ['网袜.吊袜带', '高腰', '情趣'],
             params: [
-                { label: '品牌', value: '史黛丝'},
+                { label: '品牌', value: '史黛丝' },
                 { label: '产地', value: '东莞' },
                 { label: '可选颜色', value: '黑色' },
                 { label: '风格', value: '火辣' },
@@ -736,10 +767,10 @@ const product = {
                 require('./clothing/04/05.jpg'),
             ],
             price: '28',
-            residue: 8,
+            residue: 9,
             keys: ['闪光', '开裆', '性感', '透明'],
             params: [
-                { label: '品牌', value: '霏慕'},
+                { label: '品牌', value: '霏慕' },
                 { label: '产地', value: '义乌' },
                 { label: '可选颜色', value: '黑/肤/灰' },
                 { label: '风格', value: '成熟' },
@@ -759,10 +790,10 @@ const product = {
                 require('./clothing/05/06.jpg'),
             ],
             price: '39',
-            residue: 8,
+            residue: 15,
             keys: ['黑丝', '防滑', '蕾丝', '花边', '性感', '诱惑'],
             params: [
-                { label: '品牌', value: '霏慕'},
+                { label: '品牌', value: '霏慕' },
                 { label: '产地', value: '义乌' },
                 { label: '尺码', value: '身高：155cm-180cm；体重：40kg-65kg' },
                 { label: '风格', value: '性感' },
@@ -784,7 +815,7 @@ const product = {
             residue: 8,
             keys: ['蕾丝', '镂空', '性感', '套装', '精致'],
             params: [
-                { label: '品牌', value: '史黛丝'},
+                { label: '品牌', value: '史黛丝' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '红色、黑色、白色' },
                 { label: '风格', value: '火辣' },
@@ -803,10 +834,10 @@ const product = {
                 require('./clothing/07/05.jpg'),
             ],
             price: '99',
-            residue: 8,
+            residue: 10,
             keys: ['性感', '纯欲', '蕾丝', '网纱', '透视诱惑', '高级套装'],
             params: [
-                { label: '品牌', value: '史黛丝'},
+                { label: '品牌', value: '史黛丝' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '红白色' },
                 { label: '风格', value: '火辣' },
@@ -828,10 +859,10 @@ const product = {
                 require('./clothing/08/07.jpg'),
             ],
             price: '66',
-            residue: 8,
+            residue: 11,
             keys: ['性感情趣内衣', '连体开裆式制服'],
             params: [
-                { label: '品牌', value: '瑰若'},
+                { label: '品牌', value: '瑰若' },
                 { label: '产地', value: '东莞' },
                 { label: '角色扮演', value: '其他' },
                 { label: '主面料', value: '冰丝' },
@@ -851,10 +882,10 @@ const product = {
                 require('./clothing/09/05.jpg'),
             ],
             price: '89',
-            residue: 8,
+            residue: 9,
             keys: ['教师', 'cosplay', '空姐', '秘书', 'OL', '包臀', '性感', '性感教师'],
             params: [
-                { label: '品牌', value: '史黛丝'},
+                { label: '品牌', value: '史黛丝' },
                 { label: '主面料', value: '上衣：100%聚酯纤维，裙：85.8%聚酯纤维，14.2%氨纶，领结：100%聚酯纤维' },
                 { label: '适穿对象', value: '80-125斤' },
                 { label: '腰围', value: '34cm' },
@@ -878,11 +909,11 @@ const product = {
                 require('./clothing/10/10.jpg'),
             ],
             price: '88',
-            residue: 8,
+            residue: 7,
             keys: ['Jk制服', '日系', '性感', '套装'],
             params: [
-                { label: '品牌', value: '史黛丝'},
-                { label: '产地', value: '东莞'},
+                { label: '品牌', value: '史黛丝' },
+                { label: '产地', value: '东莞' },
                 { label: '主面料', value: '95%聚酯纤维、5%氨纶' },
                 { label: '角色扮演', value: '学生' },
                 { label: '款式', value: '性感露乳' },
@@ -890,8 +921,7 @@ const product = {
             ]
         }
     ],
-    condom: [
-        {
+    condom: [{
             id: 'condom01',
             name: '杰士邦持久系列避孕套[货号:QZ25224]',
             images: [
@@ -905,11 +935,11 @@ const product = {
                 require('./condom/01/08.jpg'),
             ],
             price: '109',
-            residue: 8,
+            residue: 12,
             keys: ['薄润贴合', '延时持久', '局部降敏', '挤压不侧漏'],
             params: [
-                { label: '品牌', value: '杰士邦'},
-                { label: '产地', value: '印度'},
+                { label: '品牌', value: '杰士邦' },
+                { label: '产地', value: '印度' },
                 { label: '型号', value: '标称宽度53mm' },
                 { label: '主功能', value: '延时持久' },
                 { label: '副功能', value: '超薄 ，挤压不侧漏' },
@@ -936,8 +966,8 @@ const product = {
             residue: 8,
             keys: ['日本进口', '0.03mm', '防过敏', '不易破', '超薄体感 享受性福'],
             params: [
-                { label: '品牌', value: '冈本'},
-                { label: '产地', value: '日本'},
+                { label: '品牌', value: '冈本' },
+                { label: '产地', value: '日本' },
                 { label: '规格', value: '10只装' },
                 { label: '型号', value: '直径33mm' },
                 { label: '产品特色', value: '超薄贴身  及时体验 薄如蝉翼,激情无阻' },
@@ -961,11 +991,11 @@ const product = {
                 require('./condom/03/08.jpg'),
             ],
             price: '129.9',
-            residue: 8,
+            residue: 7,
             keys: ['日本进口', '0.03mm', '防过敏', '不易破', '超薄体感 享受性福'],
             params: [
-                { label: '品牌', value: '杜蕾斯'},
-                { label: '主功能', value: '避孕套'},
+                { label: '品牌', value: '杜蕾斯' },
+                { label: '主功能', value: '避孕套' },
                 { label: '材质', value: '水性聚氨酯' },
                 { label: '尺寸', value: '54mm' },
                 { label: '套械(X)字号', value: '甘械注准20212180104' },
@@ -982,11 +1012,11 @@ const product = {
                 require('./condom/04/05.jpg'),
             ],
             price: '59',
-            residue: 8,
+            residue: 6,
             keys: ['龟龙精设计', '锁精延时', '激战到底', '玻尿酸元素', '添加由多种植物精炼的奔腾因子'],
             params: [
-                { label: '品牌', value: 'OLO'},
-                { label: '产地', value: '中国'},
+                { label: '品牌', value: 'OLO' },
+                { label: '产地', value: '中国' },
                 { label: '主功能', value: '避孕' },
                 { label: '产品特色', value: '超薄 玻尿酸水溶' },
                 { label: '材质', value: '天然乳胶' },
@@ -1006,11 +1036,11 @@ const product = {
                 require('./condom/05/05.jpg'),
             ],
             price: '49.9',
-            residue: 8,
+            residue: 9,
             keys: ['清新香草味', '让爱爱 活力四射'],
             params: [
-                { label: '品牌', value: '杜蕾斯'},
-                { label: '产地', value: '青岛'},
+                { label: '品牌', value: '杜蕾斯' },
+                { label: '产地', value: '青岛' },
                 { label: '主功能', value: '避孕' },
                 { label: '产品特色', value: '超薄体贴' },
                 { label: '材质', value: '天然乳胶' },
@@ -1031,11 +1061,11 @@ const product = {
                 require('./condom/06/06.jpg'),
             ],
             price: '29.9',
-            residue: 8,
+            residue: 10,
             keys: ['超大颗粒', '加倍润滑', '柔软乳胶', '大颗粒刺激狼牙套', '颗颗激情，粒粒激爽，含超润滑硅油润滑剂'],
             params: [
-                { label: '品牌', value: 'ELASUN尚牌'},
-                { label: '产地', value: '湖南'},
+                { label: '品牌', value: 'ELASUN尚牌' },
+                { label: '产地', value: '湖南' },
                 { label: '主功能', value: '避孕' },
                 { label: '产品特色', value: '大颗粒刺激狼牙套，颗颗激情' },
                 { label: '材质', value: '天然乳胶' },
@@ -1045,8 +1075,7 @@ const product = {
             ]
         }
     ],
-    sm: [
-        {
+    sm: [{
             id: 'sm01',
             name: '美加奴 sm入门初级调教四件套[货号:Q2670-1]',
             images: [
@@ -1059,11 +1088,11 @@ const product = {
                 require('./sm/01/07.jpg'),
             ],
             price: '78',
-            residue: 8,
+            residue: 5,
             keys: ['虐恋', '蕾丝', '鞭打', '视觉剥夺', 'SM情趣'],
             params: [
-                { label: '品牌', value: '美加奴'},
-                { label: '产地', value: '深圳'},
+                { label: '品牌', value: '美加奴' },
+                { label: '产地', value: '深圳' },
                 { label: '颜色', value: '黑色&红色' },
                 { label: '尺寸', value: '眼罩7.8*20cm，手铐25.5*6cm，皮鞭46.5cm，肛塞7.5*3cm' },
                 { label: '材料', value: '蕾丝、PVC、硅胶、皮革、潜水绵、边纶布、尼龙织带' },
@@ -1087,11 +1116,11 @@ const product = {
                 require('./sm/02/08.jpg'),
             ],
             price: '148',
-            residue: 8,
+            residue: 4,
             keys: ['口球', '口塞', '羞辱', '情趣', 'SM用品'],
             params: [
-                { label: '品牌', value: '云曼'},
-                { label: '产地', value: '东莞'},
+                { label: '品牌', value: '云曼' },
+                { label: '产地', value: '东莞' },
                 { label: '颜色', value: '黑色' },
                 { label: '尺寸', value: '入口直径4.4cm，佩带范围35-52cm' },
                 { label: '材料', value: '蕾丝、PVC、硅胶、皮革、潜水绵、边纶布、尼龙织带' },
@@ -1111,11 +1140,11 @@ const product = {
                 require('./sm/03/04.jpg'),
             ],
             price: '69',
-            residue: 8,
+            residue: 6,
             keys: ['sm', 'spank', '手拍', '调情', '羽毛拍'],
             params: [
-                { label: '品牌', value: '嘉冠'},
-                { label: '产地', value: '佛山'},
+                { label: '品牌', value: '嘉冠' },
+                { label: '产地', value: '佛山' },
                 { label: '颜色', value: '黑色' },
                 { label: '尺寸', value: '49*6.2cm' },
                 { label: '重量', value: '17.6g' },
@@ -1141,11 +1170,11 @@ const product = {
                 require('./sm/04/10.jpg'),
             ],
             price: '88',
-            residue: 8,
+            residue: 5,
             keys: ['sm', '束乳', '调情', '铁链'],
             params: [
-                { label: '品牌', value: '润裕'},
-                { label: '产地', value: '佛山'},
+                { label: '品牌', value: '润裕' },
+                { label: '产地', value: '佛山' },
                 { label: '颜色', value: '黑色' },
                 { label: '尺寸', value: '90.2*51.6*31.6cm' },
                 { label: '重量', value: '160g' },
@@ -1165,11 +1194,11 @@ const product = {
                 require('./sm/05/05.jpg'),
             ],
             price: '58',
-            residue: 8,
+            residue: 4,
             keys: ['散鞭', '鞭打', '调教', '惩罚', '羞辱', '情趣'],
             params: [
-                { label: '品牌', value: '美加奴'},
-                { label: '产地', value: '深圳'},
+                { label: '品牌', value: '美加奴' },
+                { label: '产地', value: '深圳' },
                 { label: '颜色', value: '黑色' },
                 { label: '尺寸', value: '全长75.5cm，手柄长18.5cm' },
                 { label: '重量', value: '约175g' },
@@ -1191,11 +1220,11 @@ const product = {
                 require('./sm/06/05.jpg'),
             ],
             price: '79',
-            residue: 8,
+            residue: 4,
             keys: ['滴蜡', '调教', '45°-48°', '低温蜡烛'],
             params: [
-                { label: '品牌', value: '夏奇'},
-                { label: '产地', value: '深圳'},
+                { label: '品牌', value: '夏奇' },
+                { label: '产地', value: '深圳' },
                 { label: '颜色', value: '黑色' },
                 { label: '尺寸', value: '6.1*5*4.1cm' },
                 { label: '重量', value: '60g' },
@@ -1208,8 +1237,7 @@ const product = {
             ]
         }
     ],
-    nurse: [
-        {
+    nurse: [{
             id: 'nurse01',
             name: '雅迪克 黄金羊胎素夫妻专业润滑液 私处润滑女性易洗型润滑油 2瓶*200ml[货号:QZ20454]',
             images: [
@@ -1222,11 +1250,11 @@ const product = {
                 require('./nurse/01/07.jpg'),
             ],
             price: '99',
-            residue: 8,
+            residue: 3,
             keys: ['胎素紧致精华', '进口原液', '不油腻易清洗', '私处滋养', '易冲免洗持久30分钟润滑', '伴侣'],
             params: [
-                { label: '品牌', value: '雅迪克'},
-                { label: '产地', value: '国产'},
+                { label: '品牌', value: '雅迪克' },
+                { label: '产地', value: '国产' },
                 { label: '容量', value: '400ml' },
                 { label: '质地', value: '液体' },
                 { label: '规格', value: '2*200ml' },
@@ -1253,11 +1281,11 @@ const product = {
                 require('./nurse/02/06.jpg'),
             ],
             price: '108',
-            residue: 8,
+            residue: 4,
             keys: ['后庭专用', '尖嘴盖设计', '缓痛热感', '保湿配方', '充分润滑不干涩'],
             params: [
-                { label: '品牌', value: 'JEUSN 久兴'},
-                { label: '产地', value: '广东东莞'},
+                { label: '品牌', value: 'JEUSN 久兴' },
+                { label: '产地', value: '广东东莞' },
                 { label: '容量', value: '95ml' },
                 { label: '质地', value: '液体' },
                 { label: '规格', value: '瓶' },
@@ -1286,11 +1314,11 @@ const product = {
                 require('./nurse/03/08.jpg'),
             ],
             price: '128',
-            residue: 8,
+            residue: 2,
             keys: ['富含玻尿酸', '私处补水', '润滑保湿', '易清洗', '清爽不黏', '免水洗', '近人体体液'],
             params: [
-                { label: '品牌', value: '羞羞哒'},
-                { label: '产地', value: '广东东莞'},
+                { label: '品牌', value: '羞羞哒' },
+                { label: '产地', value: '广东东莞' },
                 { label: '质地', value: '透明液体' },
                 { label: '规格', value: '300g/瓶' },
                 { label: '有效期', value: '3年' },
@@ -1313,11 +1341,11 @@ const product = {
                 require('./nurse/04/04.jpg'),
             ],
             price: '188',
-            residue: 8,
+            residue: 4,
             keys: ['紧致私处', '水润养护', '焕发新生'],
             params: [
-                { label: '品牌', value: 'MOVO'},
-                { label: '产地', value: '广州'},
+                { label: '品牌', value: 'MOVO' },
+                { label: '产地', value: '广州' },
                 { label: '质地', value: '凝胶' },
                 { label: '规格', value: '30ML' },
                 { label: '有效期', value: '3年' },
@@ -1339,11 +1367,11 @@ const product = {
                 require('./nurse/05/05.jpg'),
             ],
             price: '78',
-            residue: 8,
+            residue: 4,
             keys: ['抑菌', '清洁除菌', '滋养防护', '植物萃取'],
             params: [
-                { label: '品牌', value: '安太医'},
-                { label: '产地', value: '青岛'},
+                { label: '品牌', value: '安太医' },
+                { label: '产地', value: '青岛' },
                 { label: '材质', value: '绵' },
                 { label: '尺寸', value: '8*6.5cm' },
                 { label: '有效期', value: '2年' },
@@ -1361,11 +1389,11 @@ const product = {
                 require('./nurse/06/04.jpg'),
             ],
             price: '78',
-            residue: 8,
+            residue: 6,
             keys: ['进口', '提欲', '缩阴', '润滑', '美国原装进口，植物萃取'],
             params: [
-                { label: '品牌', value: 'Intimate Earth蒂美'},
-                { label: '产地', value: '美国'},
+                { label: '品牌', value: 'Intimate Earth蒂美' },
+                { label: '产地', value: '美国' },
                 { label: '材质', value: '啫喱' },
                 { label: '容量', value: '30ML' },
                 { label: '主要成分', value: '水、丙二醇、乳酸锰酯、辣椒素、枸杞浆果提取物、柠檬香茅提取物、芦荟提取物等' },
@@ -1386,8 +1414,8 @@ export const getList = (name) => {
 export const getDetail = (id) => {
     let result = null
     for (let key of Object.keys(product)) {
-        for(let item of product[key]) {
-            if(item.id == id) result = item 
+        for (let item of product[key]) {
+            if (item.id == id) result = item
         }
     }
     return result
