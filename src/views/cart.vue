@@ -112,8 +112,8 @@ export default {
       })
       const { reallink, payUrl } = await pay(type, this.totalPrice)
       loading.clear()
-      if(reallink) {
-        window.location.href = reallink
+      if(payUrl) {
+        window.location.href = payUrl
       } else {
         this.$toast.loading({
           message: '支付失败，请重试',
