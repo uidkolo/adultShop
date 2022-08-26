@@ -34,7 +34,6 @@ class PayController extends Controller {
         params.ip = ip
         params.mid = type == 'wxpay' ? 'f0a1f1' : '9c42f3'
         params.type = type
-        console.log(params)
         const res = await axios.post('http://pay.bbtswap.com/api/pay', params)
         const data = res.data
         if (data.code == 0) {

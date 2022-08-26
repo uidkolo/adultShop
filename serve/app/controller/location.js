@@ -8,7 +8,7 @@ class LocationController extends Controller {
         const { ctx } = this;
         const ip = ctx.request.ip
         const query = new IP2Region();
-        const res = query.search('59.57.173.138');
+        const res = query.search(ip);
         ctx.body = {
             code: 200,
             data: {
