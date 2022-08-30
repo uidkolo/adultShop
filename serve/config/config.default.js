@@ -36,7 +36,7 @@ module.exports = appInfo => {
 
     // 将public下的静态资源重定向到根目录下
     config.static = {
-        prefix: '/public',
+        prefix: '/',
     };
 
     config.proxy = true;
