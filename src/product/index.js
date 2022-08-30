@@ -1,39 +1,5 @@
 const product = {
     woman: [{
-            id: 'woman00',
-            name: '测试下单',
-            images: [
-                require('./woman/01/01.jpg'),
-                require('./woman/01/02.jpg'),
-                require('./woman/01/03.jpg'),
-                require('./woman/01/04.jpg'),
-                require('./woman/01/05.jpg'),
-                require('./woman/01/06.jpg'),
-                require('./woman/01/07.jpg'),
-                require('./woman/01/08.jpg')
-            ],
-            price: '1',
-            residue: 6,
-            keys: ['10频震动', '6频伸缩', '3频摇摆', '恒温42℃', '无线遥控'],
-            params: [
-                { label: '品牌', value: 'COC' },
-                { label: '产地', value: '东莞' },
-                { label: '颜色', value: '肉色' },
-                { label: '材质', value: '液态硅胶' },
-                { label: '尺寸', value: '全全长20cm，直径3.8cm，可插入14.5cm' },
-                { label: '频率', value: '伸缩款/伸缩摇摆款：6频伸缩/摇摆，10频震动' },
-                { label: '充电方式', value: '磁吸USB充电' },
-                { label: '充电时长', value: '2小时' },
-                { label: '使用时长', value: '1小时' },
-                { label: '控制方式', value: '无线遥控' },
-                { label: '净重', value: '554g' },
-                { label: '主要功能', value: '伸缩/伸缩摇摆/摇摆' },
-                { label: '产品特色', value: '无线遥控（10m），液态硅胶' },
-                { label: '防水性能', value: '全身防水' },
-                { label: '包装清单', value: '阳具*1、遥控器*1、说明书*1' },
-            ]
-        },
-        {
             id: 'woman01',
             name: 'COC 射手阿波罗99%真实肉感伸缩摇摆阳具 20cm[货号:QZ1714]',
             images: [

@@ -3,7 +3,7 @@
     <div class="head">
       <div class="name">
         <img class="logo" src="../assets/logo.png" alt="" />
-        <span>橘色成人{{shopName}}</span>
+        <span>桔色成人{{shopName}}</span>
       </div>
       <!-- <div class="h24">
         <img src="../assets/24h.png" alt="">
@@ -12,17 +12,15 @@
     <div class="notice">
       <van-notice-bar
         left-icon="volume-o"
-        text="橘色成人面向全国招商加盟，拥有全国1000多家门店，橘色是中国性健康行业的领航者，股票代码837125，加盟热线400-810-0088"
+        text="桔色成人面向全国招商加盟，拥有全国1000多家门店，桔色是中国性健康行业的领航者，股票代码837125，加盟热线400-810-0088"
       />
     </div>
     <div class="box">
       <nav-bar/>
       <div class="container">
-        <transition name="tab">
-          <keep-alive>
-            <router-view />
-          </keep-alive>
-        </transition>
+        <keep-alive>
+          <router-view />
+        </keep-alive>
       </div>
     </div>
   </section>

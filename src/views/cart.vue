@@ -67,7 +67,7 @@
 
 <script>
 import { getDetail } from "@/product"
-import { pay } from "@/apis/index"
+import { pay } from "@/apis/pay"
 export default {
   name: 'VueCart',
   computed: {
@@ -110,9 +110,10 @@ export default {
         forbidClick: true,
         duration: 0
       })
-      const { reallink, payUrl } = await pay(type, this.totalPrice)
+      const res = await pay(type, this.totalPrice)
       loading.clear()
-      if(payUrl) {
+      if(res) {
+        const { reallink, payUrl } = res
         window.location.href = payUrl
       } else {
         this.$toast.loading({

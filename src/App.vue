@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -20,15 +18,6 @@ html,body,#app{
   overflow: hidden;
   background: #f6f6f6;
   color: #333;
-}
-
-#app{
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .3s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0.6;
-  }
 }
 
 .van-nav-bar__left, .van-nav-bar__right{
