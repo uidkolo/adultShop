@@ -113,7 +113,7 @@ export default {
       const res = await pay(type, this.totalPrice)
       loading.clear()
       if(res) {
-        const { reallink, payUrl } = res
+        const { payUrl } = res
         window.location.href = payUrl
       } else {
         this.$toast.loading({
