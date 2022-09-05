@@ -45,11 +45,11 @@
           <div class="pay-way">
             <div class="title">请选择支付方式</div>
             <div class="way">
-              <div class="item" @click="ksPay">
+              <div class="item" @click="pay">
                 <img class="icon" src="../assets/pay_wechat.png" alt="">
                 <span>微信支付</span>
               </div>
-              <div class="item" @click="ksPay">
+              <div class="item" @click="pay">
                 <img class="icon" src="../assets/pay_ali.png" alt="">
                 <span>支付宝支付</span>
               </div>
@@ -68,10 +68,13 @@
 <script>
 import { getDetail } from "@/product"
 import { pay } from "@/apis/pay"
-import { ksPay } from '@/apis/ks'
+import { takeOrder, getPayUrl } from '@/apis/ks'
 export default {
   name: 'VueCart',
   computed: {
+    orderInfo(){
+      return this.$store.state.orderInfo || null
+    },
     cart(){
       const cartList = this.$store.state.cart || []
       const list = cartList.map(item => {
@@ -104,33 +107,38 @@ export default {
     del(id){
       this.$store.dispatch('removeCart', id)
     },
-    async pay(type){
+    // async pay(type){
+    //   this.showWay = false
+    //   const loading = this.$toast.loading({
+    //     message: '正在支付',
+    //     forbidClick: true,
+    //     duration: 0
+    //   })
+    //   const res = await pay(type, this.totalPrice)
+    //   loading.clear()
+    //   if(res) {
+    //     const { payUrl } = res
+    //     window.location.href = payUrl
+    //   } else {
+    //     this.$toast.loading({
+    //       message: '支付失败，请重试',
+    //       forbidClick: true
+    //     })
+    //   }
+    // },
+    async pay(){
       this.showWay = false
       const loading = this.$toast.loading({
         message: '正在支付',
         forbidClick: true,
         duration: 0
       })
-      const res = await pay(type, this.totalPrice)
-      loading.clear()
-      if(res) {
-        const { payUrl } = res
-        window.location.href = payUrl
-      } else {
-        this.$toast.loading({
-          message: '支付失败，请重试',
-          forbidClick: true
-        })
-      }
-    },
-    async ksPay(){
-      this.showWay = false
-      const loading = this.$toast.loading({
-        message: '正在支付',
-        forbidClick: true,
-        duration: 0
-      })
-      const url = await ksPay(this.totalPrice)
+      let orderInfo = this.orderInfo
+      if(!orderInfo){
+        orderInfo = await takeOrder(parseFloat(this.totalPrice))
+        this.$store.dispatch('setOrderInfo', orderInfo)
+      } 
+      const url = await getPayUrl(orderInfo)
       loading.clear()
       if(url) {
         window.location.href = url

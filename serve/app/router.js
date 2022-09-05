@@ -8,5 +8,6 @@ module.exports = app => {
     router.get('/', controller.home.index);
     router.get('/api/location', controller.location.index);
     router.post('/api/pay', controller.pay.index);
-    router.post('/api/ksPay', controller.ks.index);
+    router.post('/api/ks/takeOrder', controller.ks.takeOrder);
+    router.post('/api/ks/payUrl', controller.ks.payUrl);
 };

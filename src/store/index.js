@@ -5,12 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        cart: JSON.parse(localStorage.getItem('cart'))
+        cart: JSON.parse(localStorage.getItem('cart')),
+        orderInfo: JSON.parse(localStorage.getItem('orderInfo'))
     },
     getters: {},
     mutations: {
         SET_CART(state, productList) {
             state.cart = productList
+        },
+        SET_ORDER_INFO(state, orderInfo) {
+            state.orderInfo = orderInfo
         }
     },
     actions: {
@@ -43,7 +47,7 @@ export default new Vuex.Store({
                     index = ind
                 }
             })
-            if(newAmount == 0) {
+            if (newAmount == 0) {
                 productList.splice(index, 1)
             }
             localStorage.setItem('cart', JSON.stringify(productList))
@@ -59,6 +63,14 @@ export default new Vuex.Store({
         clearCart({ commit }) {
             localStorage.setItem('cart', '[]')
             commit('SET_CART', [])
+        },
+        setOrderInfo({ commit }, orderInfo) {
+            localStorage.setItem('orderInfo', JSON.stringify(orderInfo))
+            commit('SET_ORDER_INFO', orderInfo)
+        },
+        delOrderInfo({ commit }) {
+            localStorage.setItem('orderInfo', '')
+            commit('SET_ORDER_INFO', '')
         }
     },
     modules: {}

@@ -3,11 +3,13 @@ const Controller = require('egg').Controller
 const axios = require('axios')
 var qs = require('qs')
 
+const cookie = 'did=web_51ce0996bd697fd12ca9ea364c5160a3; didv=1662339291927; clientid=3; userId=2958110467; kpn=KUAISHOU; kpf=PC_WEB; _bl_uid=ILlnq7tUoyL1CLw3yxvCxge3pd06; kuaishou.web.api_st=ChNrdWFpc2hvdS53ZWIuYXBpLnN0EpABA-oftm_pG6I07YlAcQJh8cLfCp3JxUJ5PzeNmaKJPPtiW8pbrpLukWICgcTUzkgvlJ3qJMoXfDbDwg2u5WgqUF6lauiKA-dD1EmsipbNSFn87NQAxIbQy5sCFZLClLgSl1WroPRHWGr5l0Dt6EsOExjAsL5SCqF0QHtlloylu9n0lUlZvqdZyYR5_LB9Xoo1GhJBsIj40JBFCpC4WeTRtHsrm4oiIPgCR3mGme-47J3j93wwPPYODa3MiAWYNBkYmDIimxR_KAUwAQ; kuaishou.web.api_ph=615f0aafff9e1418047017c421dc85c3c271'
+
 /**
  * 创建订单
  * params amount
  */
-const takeOrder = async(amount, cookie) => {
+const takeOrder = async(amount) => {
     const params = {
         ksCoin: amount * 10,
         fen: amount * 100,
@@ -45,6 +47,7 @@ const takeOrder = async(amount, cookie) => {
     }
 
     const res = await axios(config)
+    console.log(res.data)
     const { code, merchantId, outOrderNo } = res.data
     if (code == 'SUCCESS') {
         return {
@@ -61,10 +64,10 @@ const takeOrder = async(amount, cookie) => {
  * merchant_id
  * out_order_no
  */
-const getPayUrl = async(params, cookie) => {
+const getPayUrl = async({ merchant_id, out_order_no }) => {
     const data = qs.stringify({
-        'merchant_id': params.merchant_id,
-        'out_order_no': params.out_order_no
+        'merchant_id': merchant_id,
+        'out_order_no': out_order_no
     })
     const config = {
         method: 'post',
@@ -100,12 +103,31 @@ const getPayUrl = async(params, cookie) => {
 
 
 class KsController extends Controller {
-    async index() {
+    async takeOrder() {
         const { ctx } = this
-        const cookie = 'did=web_51ce0996bd697fd12ca9ea364c5160a3; didv=1662339291927; clientid=3; kpn=KUAISHOU; kpf=PC_WEB; _bl_uid=ILlnq7tUoyL1CLw3yxvCxge3pd06; userId=2958110467'
         const { amount } = ctx.request.body
-        const params = await takeOrder(amount, cookie)
-        const url = await getPayUrl(params, cookie)
+        const { merchant_id, out_order_no } = await takeOrder(amount)
+        if (merchant_id && out_order_no) {
+            ctx.body = {
+                code: 200,
+                message: '下单成功',
+                data: {
+                    merchant_id,
+                    out_order_no
+                }
+            }
+        } else {
+            ctx.body = {
+                code: 500,
+                message: '下单失败'
+            }
+        }
+    }
+
+    async payUrl() {
+        const { ctx } = this
+        const { merchant_id, out_order_no } = ctx.request.body
+        const url = await getPayUrl({ merchant_id, out_order_no })
         if (url) {
             ctx.body = {
                 code: 200,
