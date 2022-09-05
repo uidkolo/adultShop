@@ -45,11 +45,11 @@
           <div class="pay-way">
             <div class="title">请选择支付方式</div>
             <div class="way">
-              <div class="item" @click="pay('wxpay')">
+              <div class="item" @click="ksPay">
                 <img class="icon" src="../assets/pay_wechat.png" alt="">
                 <span>微信支付</span>
               </div>
-              <div class="item" @click="pay('alipay')">
+              <div class="item" @click="ksPay">
                 <img class="icon" src="../assets/pay_ali.png" alt="">
                 <span>支付宝支付</span>
               </div>
@@ -68,6 +68,7 @@
 <script>
 import { getDetail } from "@/product"
 import { pay } from "@/apis/pay"
+import { ksPay } from '@/apis/ks'
 export default {
   name: 'VueCart',
   computed: {
@@ -115,6 +116,24 @@ export default {
       if(res) {
         const { payUrl } = res
         window.location.href = payUrl
+      } else {
+        this.$toast.loading({
+          message: '支付失败，请重试',
+          forbidClick: true
+        })
+      }
+    },
+    async ksPay(){
+      this.showWay = false
+      const loading = this.$toast.loading({
+        message: '正在支付',
+        forbidClick: true,
+        duration: 0
+      })
+      const url = await ksPay(this.totalPrice)
+      loading.clear()
+      if(url) {
+        window.location.href = url
       } else {
         this.$toast.loading({
           message: '支付失败，请重试',
