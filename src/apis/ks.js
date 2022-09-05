@@ -5,12 +5,12 @@ import request from '../utils/request'
  * params amount 金额
  */
 export const ksPay = async(amount) => {
-    const url = await request({
+    const { data } = await request({
         url: `api/ksPay`,
         method: 'post',
         data: {
             amount
         }
     })
-    return url
+    return data
 }
