@@ -75,6 +75,9 @@ export default {
     orderInfo(){
       return this.$store.state.orderInfo || null
     },
+    payUrl(){
+      return this.$store.state.payUrl || ''
+    },
     cart(){
       const cartList = this.$store.state.cart || []
       const list = cartList.map(item => {
@@ -138,7 +141,10 @@ export default {
         orderInfo = await takeOrder(parseFloat(this.totalPrice))
         this.$store.dispatch('setOrderInfo', orderInfo)
       } 
-      const url = await getPayUrl(orderInfo)
+      let url = this.payUrl
+      if(!url){
+        url = await getPayUrl(orderInfo)
+      }
       loading.clear()
       if(url) {
         window.location.href = url

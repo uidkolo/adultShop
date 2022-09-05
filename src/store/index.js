@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         cart: JSON.parse(localStorage.getItem('cart')),
-        orderInfo: JSON.parse(localStorage.getItem('orderInfo'))
+        orderInfo: JSON.parse(localStorage.getItem('orderInfo')),
+        payUrl: JSON.parse(localStorage.getItem('payUrl'))
     },
     getters: {},
     mutations: {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
         },
         SET_ORDER_INFO(state, orderInfo) {
             state.orderInfo = orderInfo
+        },
+        SET_PAY_URL(state, url) {
+            state.payUrl = url
         }
     },
     actions: {
@@ -71,6 +75,14 @@ export default new Vuex.Store({
         delOrderInfo({ commit }) {
             localStorage.setItem('orderInfo', '')
             commit('SET_ORDER_INFO', '')
+        },
+        setPayUrl({ commit }, url) {
+            localStorage.setItem('setPayUrl', JSON.stringify(url))
+            commit('SET_PAY_URL', url)
+        },
+        delPayUrl({ commit }) {
+            localStorage.setItem('setPayUrl', '')
+            commit('SET_PAY_URL', '')
         }
     },
     modules: {}
