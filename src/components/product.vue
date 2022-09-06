@@ -38,8 +38,14 @@ export default {
   },
   methods:{
       add(id){
-        this.$store.dispatch('addCart', id)
-        this.$toast.success('已加入购物车')
+        // this.$store.dispatch('addCart', id)
+        // this.$toast.success('已加入购物车')
+        this.$router.push({
+            path: '/order',
+            query: {
+                id: this.product.id
+            }
+        })
       },
       toDetail(){
           this.$router.push({

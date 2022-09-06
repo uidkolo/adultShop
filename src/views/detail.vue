@@ -56,11 +56,12 @@
     <div class="bottom-box">
       <div class="bottom">
         <div class="btns">
-          <router-link class="btn go" to="/cart" replace key="cart">
+          <!-- <router-link class="btn go" to="/cart" replace key="cart">
             <span>去结算</span>
             <span v-if="cart.length>0">（{{cart.length}}）</span>  
           </router-link>
-          <div class="btn join" @click="addCart">加入购物车</div>
+          <div class="btn join" @click="addCart">加入购物车</div> -->
+          <div class="buy" @click="buy">立即选购</div>
         </div>
       </div>
     </div>
@@ -105,6 +106,14 @@ export default {
     addCart(){
       this.$store.dispatch('addCart', this.detail.id)
       this.$toast.success('已加入购物车')
+    },
+    buy(){
+        this.$router.push({
+            path: '/order',
+            query: {
+                id: this.$route.query.id
+            }
+        })
     }
   }
 }
@@ -263,6 +272,19 @@ export default {
       .join{
         background: linear-gradient(to right, #e84a5f, #c94052);
         border-radius: 0 40px 40px 0;
+      }
+      .buy{
+        background: linear-gradient(to right, #fd9b04, #ff5b04);
+        border-radius: 40px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        flex-grow: 1;
+        span{
+          color: white;
+        }
       }
     }
   }
