@@ -62,7 +62,7 @@
 
 <script>
 import { getDetail } from "@/product"
-import { takeOrder, getPayUrl } from '@/apis/ks'
+import { getPayUrl } from '@/apis/ks'
 export default {
   name: 'VueCart',
   computed: {
@@ -110,9 +110,7 @@ export default {
         forbidClick: true,
         duration: 0
       })
-      const payNum = parseFloat((this.totalPrice * 0.85).toFixed(2))
-      const orderInfo = await takeOrder(payNum)
-      const url = await getPayUrl(orderInfo)
+      const url = await getPayUrl(parseInt((this.totalPrice * 0.85)))
       loading.clear()
       if(url) {
         window.location.href = url
