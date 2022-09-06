@@ -1,39 +1,5 @@
 const product = {
     woman: [{
-            id: 'woman00',
-            name: '测试支付',
-            images: [
-                require('./woman/01/01.jpg'),
-                require('./woman/01/02.jpg'),
-                require('./woman/01/03.jpg'),
-                require('./woman/01/04.jpg'),
-                require('./woman/01/05.jpg'),
-                require('./woman/01/06.jpg'),
-                require('./woman/01/07.jpg'),
-                require('./woman/01/08.jpg')
-            ],
-            price: '1',
-            residue: 5,
-            keys: ['10频震动', '6频伸缩', '3频摇摆', '恒温42℃', '无线遥控'],
-            params: [
-                { label: '品牌', value: 'COC' },
-                { label: '产地', value: '东莞' },
-                { label: '颜色', value: '肉色' },
-                { label: '材质', value: '液态硅胶' },
-                { label: '尺寸', value: '全全长20cm，直径3.8cm，可插入14.5cm' },
-                { label: '频率', value: '伸缩款/伸缩摇摆款：6频伸缩/摇摆，10频震动' },
-                { label: '充电方式', value: '磁吸USB充电' },
-                { label: '充电时长', value: '2小时' },
-                { label: '使用时长', value: '1小时' },
-                { label: '控制方式', value: '无线遥控' },
-                { label: '净重', value: '554g' },
-                { label: '主要功能', value: '伸缩/伸缩摇摆/摇摆' },
-                { label: '产品特色', value: '无线遥控（10m），液态硅胶' },
-                { label: '防水性能', value: '全身防水' },
-                { label: '包装清单', value: '阳具*1、遥控器*1、说明书*1' },
-            ]
-        },
-        {
             id: 'woman01',
             name: 'COC 射手阿波罗99%真实肉感伸缩摇摆阳具 20cm[货号:QZ1714]',
             images: [
@@ -69,22 +35,18 @@ const product = {
         },
         {
             id: 'woman02',
-            name: 'COC 爱丽丝 伸缩震动白色震动棒[货号:QZ21368]',
+            name: '色小兔 成入性用品私处吸阴舔阴器舌头女自慰舌头快乐器男性阳贝女用电动[货号:QZ21368]',
             images: [
                 require('./woman/02/01.jpg'),
                 require('./woman/02/02.jpg'),
                 require('./woman/02/03.jpg'),
-                require('./woman/02/04.jpg'),
-                require('./woman/02/05.jpg'),
-                require('./woman/02/06.jpg'),
-                require('./woman/02/07.jpg'),
-                require('./woman/02/08.jpg')
+                require('./woman/02/04.jpg')
             ],
-            price: '159',
+            price: '198',
             residue: 4,
-            keys: ['多频', '伸缩', '阴道刺激', '棒身螺纹', '硅胶材质'],
+            keys: ['多频', '阴道刺激', '棒身螺纹', '硅胶材质'],
             params: [
-                { label: '品牌', value: 'COC' },
+                { label: '品牌', value: '色小兔' },
                 { label: '产地', value: '东莞' },
                 { label: '颜色', value: '白色' },
                 { label: '材质', value: '硅胶+ABS' },
@@ -958,11 +920,9 @@ const product = {
                 require('./condom/02/03.jpg'),
                 require('./condom/02/04.jpg'),
                 require('./condom/02/05.jpg'),
-                require('./condom/02/06.jpg'),
-                require('./condom/02/07.jpg'),
-                require('./condom/02/08.jpg'),
+                require('./condom/02/06.jpg')
             ],
-            price: '139',
+            price: '195',
             residue: 8,
             keys: ['日本进口', '0.03mm', '防过敏', '不易破', '超薄体感 享受性福'],
             params: [
@@ -1238,6 +1198,35 @@ const product = {
         }
     ],
     nurse: [{
+            id: 'nurse00',
+            name: '冈本 003润滑液60ml 男用女用成人夫妻私处滋润油液情趣性用品 [货号:QZ20368]',
+            images: [
+                require('./nurse/00/01.jpg'),
+                require('./nurse/00/02.jpg'),
+                require('./nurse/00/03.jpg'),
+                require('./nurse/00/04.jpg'),
+            ],
+            price: '88',
+            residue: 3,
+            keys: ['冈本003', '润滑原液', '不油腻易清洗', '私处滋养', '易冲免洗持久30分钟润滑', '伴侣'],
+            params: [
+                { label: '品牌', value: '冈本' },
+                { label: '产地', value: '国产' },
+                { label: '容量', value: '60ml' },
+                { label: '质地', value: '液体' },
+                { label: '规格', value: '1*60ml' },
+                { label: '有效期', value: '见外包装' },
+                { label: '使用类型', value: '涂抹型' },
+                { label: '主功能', value: '持久润滑 滋养紧致阴道' },
+                { label: '产品特色', value: '马来西亚羊胎素 超大容量  持久润滑' },
+                { label: '主要成分', value: '去离子水、EDTANa2、尼泊金甲酯、羟乙基纤维素、甘油、羊胎素精华，透明质酸。' },
+                { label: '是否清洗', value: '本产品易吸收。若感不适，请即使清洗' },
+                { label: '使用时间', value: '持久湿润30分钟左右' },
+                { label: '使用方法', value: '1、旋开瓶盖；2、把尖嘴对准私处/飞机杯口等玩具，用力挤压；3、用手涂抹均匀于私处或玩具身上；4、用完后旋紧瓶盖' },
+                { label: '注意事项', value: '1、不建议做唇吸润滑液使用；2、孕期时，请按照自身情况，谨遵医嘱后使用；3、不要阳光直射；4、使用完毕后旋紧瓶盖' },
+            ]
+        },
+        {
             id: 'nurse01',
             name: '雅迪克 黄金羊胎素夫妻专业润滑液 私处润滑女性易洗型润滑油 2瓶*200ml[货号:QZ20454]',
             images: [

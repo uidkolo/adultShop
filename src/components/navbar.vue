@@ -45,10 +45,10 @@
       </router-link>
     </div>
     <div class="bottom">
-      <router-link class="cart" to="/cart" key="cart">
+      <!-- <router-link class="cart" to="/cart" key="cart">
         <div class="number" v-if="cart.length > 0">{{cart.length}}</div>
         <van-icon name="shopping-cart-o" size="30" color="#ffffff" />
-      </router-link>
+      </router-link> -->
     </div>
   </div>
 </template>
