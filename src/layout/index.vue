@@ -53,7 +53,7 @@ export default {
           city = city.substr(city.indexOf('市') + 1)
       }
       city = city.replace('市', '')
-      this.shopName = `（${city}3号店）`
+      this.shopName = city ? `（${city}NO8368店）` : `（NO8368店）`
     }
   }
 }
