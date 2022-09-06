@@ -35,7 +35,7 @@ const product = {
         },
         {
             id: 'woman02',
-            name: '色小兔 成入性用品私处吸阴舔阴器舌头女自慰舌头快乐器男性阳贝女用电动[货号:QZ21368]',
+            name: '色小兔 成人性用品私处吸阴舔阴器舌头女自慰舌头快乐器男性阳贝女用电动[货号:QZ21368]',
             images: [
                 require('./woman/02/01.jpg'),
                 require('./woman/02/02.jpg'),
@@ -305,6 +305,35 @@ const product = {
         }
     ],
     man: [{
+            id: 'man00',
+            name: '金戈 枸橼酸西地那非片(伟哥) 50mg*10片/盒 治疗男性勃起功能障碍[货号:QZ8673]',
+            images: [
+                require('./man/00/01.jpg'),
+                require('./man/00/02.jpg'),
+                require('./man/00/03.jpg'),
+                require('./man/00/04.jpg'),
+                require('./man/00/05.jpg'),
+                require('./man/00/06.jpg'),
+                require('./man/00/07.jpg'),
+                require('./man/00/08.jpg')
+            ],
+            price: '268',
+            residue: 4,
+            keys: ['金戈', '伟哥', '西地那非', '起效快', '劲大持久'],
+            params: [
+                { label: '品牌', value: '金戈' },
+                { label: '产地', value: '广州' },
+                { label: '药品名', value: '枸橼酸西地那非片' },
+                { label: '批准文号', value: '国药字号H20143255' },
+                { label: '药品类别', value: '化学药' },
+                { label: '产品剂型', value: '片剂' },
+                { label: '有效期', value: '36个月' },
+                { label: '生产企业', value: '广州白云山医药集团股份有限公司白云山制药总厂' },
+                { label: '药品分类', value: '处方药' },
+                { label: '使用方法', value: '提前0.5-4小时服用均可' },
+                { label: '主要成分', value: '5型磷酸二酯酶抑制剂' }
+            ]
+        }, {
             id: 'man01',
             name: 'NO17-久皇外用喷剂（经典款） 15ml[货号:QZ9750]',
             images: [
