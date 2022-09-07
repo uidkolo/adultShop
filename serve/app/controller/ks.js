@@ -13,7 +13,7 @@ const takeOrder = async(amount) => {
     const params = {
         ksCoin: amount * 10,
         fen: amount * 100,
-        userId: '2958110467',
+        userId: '2959788772',
         customize: true,
         kpn: 'KUAISHOU',
         kpf: 'PC_WEB'
@@ -104,7 +104,6 @@ const getPayUrl = async(params) => {
 class KsController extends Controller {
     async index() {
         const { ctx } = this
-
         const { amount } = ctx.request.body
         const params = await takeOrder(amount)
         const url = await getPayUrl(params)
