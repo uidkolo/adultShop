@@ -39,16 +39,16 @@
           <div class="pay-way">
             <div class="title">请选择支付方式</div>
             <div class="way">
-              <div class="item" @click="pay">
+              <div class="item" @click="pay('ks')">
                 <img class="icon" src="../assets/pay_ks.png" alt="">
                 <span>快币支付</span>
-                <span class="discount">(8.5折)</span>
+                <span class="discount">(9.5折)</span>
               </div>
-              <div class="item" @click="showPayWay">
+              <div class="item" @click="pay('wx')">
                 <img class="icon" src="../assets/pay_wechat.png" alt="">
                 <span>微信支付</span>
               </div>
-              <div class="item" @click="tip">
+              <div class="item" @click="pay('ali')">
                 <img class="icon" src="../assets/pay_ali.png" alt="">
                 <span>支付宝支付</span>
               </div>
@@ -63,6 +63,7 @@
 <script>
 import { getDetail } from "@/product"
 import { getPayUrl } from '@/apis/ks'
+import { getBrowserEnv } from '@/utils/utils'
 export default {
   name: 'VueCart',
   computed: {
@@ -72,12 +73,15 @@ export default {
   },
   data(){
     return {
+      env: '',
       showWay: false,
       detail: {}
     }
   },
   mounted() {
     this.getDetail()
+    // 获取打开环境
+    this.env = getBrowserEnv()
   },
   methods: {
     changeAmount(type){
@@ -93,32 +97,40 @@ export default {
     },
     showPayWay(){
       this.$dialog.confirm({
-        message: '庆祝桔色商城入驻快手3周年，桔色联合快手支付推出8.5折优惠活动，快手邀请您体验快币支付',
+        message: '为庆祝桔色商城入驻快手3周年，桔色联合快手支付推出9.5折优惠活动，快手邀请您体验快币支付',
         showCancelButton: false
       })
       this.showWay = true
     },
-    tip(){
+    tip(way){
       this.$dialog.alert({
-        message: '请用支付宝打开商城选购'
+        message: `请用${way=='wx'? '微信' : '支付宝'}扫码进入商城选购`
       })
     },
-    async pay(){
-      this.showWay = false
-      const loading = this.$toast.loading({
-        message: '正在支付',
-        forbidClick: true,
-        duration: 0
-      })
-      const url = await getPayUrl(parseInt((this.totalPrice * 0.85)))
-      loading.clear()
-      if(url) {
-        window.location.href = url
+    async pay(way){
+
+      if(this.env != 'wx' && way == 'wx' ){
+        this.tip(way)
+      } else if(this.env != 'ali' && way == 'ali' ){
+        this.tip(way)
       } else {
-        this.$toast.loading({
-          message: '支付失败，请重试',
-          forbidClick: true
+        this.showWay = false
+        const loading = this.$toast.loading({
+          message: '正在支付',
+          forbidClick: true,
+          duration: 0
         })
+        const amount = way == 'ks' ? parseInt((this.totalPrice * 0.95)) : parseInt(this.totalPrice)
+        const url = await getPayUrl(amount)
+        loading.clear()
+        if(url) {
+          window.location.href = url
+        } else {
+          this.$toast.loading({
+            message: '支付失败，请重试',
+            forbidClick: true
+          })
+        }
       }
     }
   }

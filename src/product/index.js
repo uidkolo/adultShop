@@ -249,7 +249,7 @@ const product = {
                 require('./woman/09/03.jpg'),
                 require('./woman/09/04.jpg'),
             ],
-            price: '99',
+            price: '129',
             residue: 3,
             keys: ['多频', '震动', '剐蹭', '单跳'],
             params: [
@@ -284,7 +284,7 @@ const product = {
                 require('./woman/10/08.jpg'),
                 require('./woman/10/09.jpg'),
             ],
-            price: '129',
+            price: '138',
             residue: 8,
             keys: ['多频', '震动', '10m遥控'],
             params: [
@@ -685,7 +685,7 @@ const product = {
                 require('./clothing/01/06.jpg'),
                 require('./clothing/01/07.jpg'),
             ],
-            price: '39',
+            price: '69',
             residue: 10,
             keys: ['丁字裤', '开裆', '绣花', '透视', '蕾丝', '情趣'],
             params: [
@@ -710,7 +710,7 @@ const product = {
                 require('./clothing/02/06.jpg'),
                 require('./clothing/02/07.jpg'),
             ],
-            price: '38',
+            price: '78',
             residue: 8,
             keys: ['精致彩钻', '性感蕾丝', '精致高雅'],
             params: [
@@ -735,7 +735,7 @@ const product = {
                 require('./clothing/03/05.jpg'),
                 require('./clothing/03/06.jpg'),
             ],
-            price: '39',
+            price: '89',
             residue: 12,
             keys: ['网袜.吊袜带', '高腰', '情趣'],
             params: [
@@ -757,7 +757,7 @@ const product = {
                 require('./clothing/04/04.jpg'),
                 require('./clothing/04/05.jpg'),
             ],
-            price: '28',
+            price: '68',
             residue: 9,
             keys: ['闪光', '开裆', '性感', '透明'],
             params: [
@@ -780,7 +780,7 @@ const product = {
                 require('./clothing/05/05.jpg'),
                 require('./clothing/05/06.jpg'),
             ],
-            price: '39',
+            price: '49',
             residue: 15,
             keys: ['黑丝', '防滑', '蕾丝', '花边', '性感', '诱惑'],
             params: [
@@ -849,7 +849,7 @@ const product = {
                 require('./clothing/08/06.jpg'),
                 require('./clothing/08/07.jpg'),
             ],
-            price: '66',
+            price: '126',
             residue: 11,
             keys: ['性感情趣内衣', '连体开裆式制服'],
             params: [
@@ -872,7 +872,7 @@ const product = {
                 require('./clothing/09/04.jpg'),
                 require('./clothing/09/05.jpg'),
             ],
-            price: '89',
+            price: '129',
             residue: 9,
             keys: ['教师', 'cosplay', '空姐', '秘书', 'OL', '包臀', '性感', '性感教师'],
             params: [
@@ -899,7 +899,7 @@ const product = {
                 require('./clothing/10/09.jpg'),
                 require('./clothing/10/10.jpg'),
             ],
-            price: '88',
+            price: '138',
             residue: 7,
             keys: ['Jk制服', '日系', '性感', '套装'],
             params: [
@@ -951,7 +951,7 @@ const product = {
                 require('./condom/02/05.jpg'),
                 require('./condom/02/06.jpg')
             ],
-            price: '195',
+            price: '198',
             residue: 8,
             keys: ['日本进口', '0.03mm', '防过敏', '不易破', '超薄体感 享受性福'],
             params: [
@@ -979,7 +979,7 @@ const product = {
                 require('./condom/03/07.jpg'),
                 require('./condom/03/08.jpg'),
             ],
-            price: '166',
+            price: '168',
             residue: 7,
             keys: ['日本进口', '0.03mm', '防过敏', '不易破', '超薄体感 享受性福'],
             params: [
@@ -1000,7 +1000,7 @@ const product = {
                 require('./condom/04/04.jpg'),
                 require('./condom/04/05.jpg'),
             ],
-            price: '129',
+            price: '148',
             residue: 6,
             keys: ['龟龙精设计', '锁精延时', '激战到底', '玻尿酸元素', '添加由多种植物精炼的奔腾因子'],
             params: [
@@ -1024,7 +1024,7 @@ const product = {
                 require('./condom/05/04.jpg'),
                 require('./condom/05/05.jpg'),
             ],
-            price: '128',
+            price: '169',
             residue: 9,
             keys: ['清新香草味', '让爱爱 活力四射'],
             params: [
@@ -1049,7 +1049,7 @@ const product = {
                 require('./condom/06/05.jpg'),
                 require('./condom/06/06.jpg'),
             ],
-            price: '79',
+            price: '138',
             residue: 10,
             keys: ['超大颗粒', '加倍润滑', '柔软乳胶', '大颗粒刺激狼牙套', '颗颗激情，粒粒激爽，含超润滑硅油润滑剂'],
             params: [
@@ -1076,7 +1076,7 @@ const product = {
                 require('./sm/01/06.jpg'),
                 require('./sm/01/07.jpg'),
             ],
-            price: '78',
+            price: '168',
             residue: 5,
             keys: ['虐恋', '蕾丝', '鞭打', '视觉剥夺', 'SM情趣'],
             params: [
@@ -1128,7 +1128,7 @@ const product = {
                 require('./sm/03/03.jpg'),
                 require('./sm/03/04.jpg'),
             ],
-            price: '69',
+            price: '129',
             residue: 6,
             keys: ['sm', 'spank', '手拍', '调情', '羽毛拍'],
             params: [
@@ -1158,7 +1158,7 @@ const product = {
                 require('./sm/04/09.jpg'),
                 require('./sm/04/10.jpg'),
             ],
-            price: '88',
+            price: '148',
             residue: 5,
             keys: ['sm', '束乳', '调情', '铁链'],
             params: [
@@ -1182,7 +1182,7 @@ const product = {
                 require('./sm/05/04.jpg'),
                 require('./sm/05/05.jpg'),
             ],
-            price: '58',
+            price: '138',
             residue: 4,
             keys: ['散鞭', '鞭打', '调教', '惩罚', '羞辱', '情趣'],
             params: [
@@ -1208,7 +1208,7 @@ const product = {
                 require('./sm/06/04.jpg'),
                 require('./sm/06/05.jpg'),
             ],
-            price: '79',
+            price: '109',
             residue: 4,
             keys: ['滴蜡', '调教', '45°-48°', '低温蜡烛'],
             params: [
@@ -1266,7 +1266,7 @@ const product = {
                 require('./nurse/01/06.jpg'),
                 require('./nurse/01/07.jpg'),
             ],
-            price: '99',
+            price: '149',
             residue: 3,
             keys: ['胎素紧致精华', '进口原液', '不油腻易清洗', '私处滋养', '易冲免洗持久30分钟润滑', '伴侣'],
             params: [
@@ -1297,7 +1297,7 @@ const product = {
                 require('./nurse/02/05.jpg'),
                 require('./nurse/02/06.jpg'),
             ],
-            price: '108',
+            price: '128',
             residue: 4,
             keys: ['后庭专用', '尖嘴盖设计', '缓痛热感', '保湿配方', '充分润滑不干涩'],
             params: [
@@ -1383,7 +1383,7 @@ const product = {
                 require('./nurse/05/04.jpg'),
                 require('./nurse/05/05.jpg'),
             ],
-            price: '78',
+            price: '98',
             residue: 4,
             keys: ['抑菌', '清洁除菌', '滋养防护', '植物萃取'],
             params: [
@@ -1405,7 +1405,7 @@ const product = {
                 require('./nurse/06/03.jpg'),
                 require('./nurse/06/04.jpg'),
             ],
-            price: '78',
+            price: '128',
             residue: 6,
             keys: ['进口', '提欲', '缩阴', '润滑', '美国原装进口，植物萃取'],
             params: [

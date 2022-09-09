@@ -1,12 +1,13 @@
-// 检测是否为微信浏览器
-export const checkIsNeizhi = () => {
+// 检测浏览器环境
+export const getBrowserEnv = () => {
     const ua = navigator.userAgent.toLowerCase();
     if (ua.match(/MicroMessenger/i) == "micromessenger") {
-        return true
+        return 'wx'
     } else if (ua.match(/QQ/i) == "qq") {
-        return true
+        return 'qq'
     } else if (ua.match(/Alipay/i) == "alipay") {
-        return true
+        return 'ali'
+    } else {
+        return 'browser'
     }
-    return false;
 }
