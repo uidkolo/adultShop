@@ -135,9 +135,9 @@ const queryOrderStatus = async(params) => {
         data
     }
     const res = await axios(config)
-    const { code, qrcode_url } = res.data
+    const { code, order_state } = res.data
     if (code == 'SUCCESS') {
-        return qrcode_url
+        return order_state // PROCESSING：待支付 SUCCESS:成功
     } else {
         return null
     }
