@@ -249,7 +249,7 @@ const product = {
                 require('./woman/09/03.jpg'),
                 require('./woman/09/04.jpg'),
             ],
-            price: '129',
+            price: '169',
             residue: 3,
             keys: ['多频', '震动', '剐蹭', '单跳'],
             params: [
@@ -284,7 +284,7 @@ const product = {
                 require('./woman/10/08.jpg'),
                 require('./woman/10/09.jpg'),
             ],
-            price: '138',
+            price: '158',
             residue: 8,
             keys: ['多频', '震动', '10m遥控'],
             params: [
