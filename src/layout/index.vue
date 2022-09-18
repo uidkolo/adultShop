@@ -3,7 +3,7 @@
     <div class="head">
       <div class="name">
         <img class="logo" src="../assets/logo.png" alt="" />
-        <span>桔色成人{{shopName}}</span>
+        <span>桔色成人（NO8368店）</span>
       </div>
       <!-- <div class="h24">
         <img src="../assets/24h.png" alt="">
