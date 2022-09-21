@@ -58,6 +58,10 @@
                 <img class="icon" src="../assets/pay_ali.png" alt="">
                 <span>支付宝支付</span>
               </div>
+              <div class="tip">
+                <van-icon name="warning" color="#e73f25" class="icon" />
+                <p>因商品特殊性，被限制支付时请解除限制后支付，若遇无法支付情况，请更换支付方式后重新支付，如有疑问请来电咨询！</p> 
+              </div>
             </div>
           </div>
         </van-popup>
