@@ -40,22 +40,23 @@
           <span class="amount">共<span class="value">{{cart.length}}</span>件商品</span>
           <span class="price">合计：<span class="unit">￥</span><span class="value">{{totalPrice}}</span></span>
         </div>
-        <div class="pay" @click="showWay = true">结算</div>
+        <div class="pay" @click="showPayWay">结算</div>
         <van-popup v-model="showWay" round position="bottom" get-container="body">
           <div class="pay-way">
             <div class="title">请选择支付方式</div>
             <div class="way">
-              <div class="item" @click="pay">
+              <div class="item" @click="pay('ks')">
+                <img class="icon" src="../assets/pay_ks.png" alt="">
+                <span>快币支付</span>
+                <span class="discount">(9.5折)</span>
+              </div>
+              <div class="item" @click="pay('wx')">
                 <img class="icon" src="../assets/pay_wechat.png" alt="">
                 <span>微信支付</span>
               </div>
-              <div class="item" @click="pay">
+              <div class="item" @click="pay('ali')">
                 <img class="icon" src="../assets/pay_ali.png" alt="">
                 <span>支付宝支付</span>
-              </div>
-              <div class="tip">
-                <van-icon name="warning" color="#e73f25" class="icon" />
-                <p>因商品特殊性，若遇风控无法支付情况，请更换支付方式后重新支付</p> 
               </div>
             </div>
           </div>
@@ -67,17 +68,11 @@
 
 <script>
 import { getDetail } from "@/product"
-import { pay } from "@/apis/pay"
-import { takeOrder, getPayUrl } from '@/apis/ks'
+import { getPayUrl } from '@/apis/ks'
+import { getBrowserEnv } from '@/utils/utils'
 export default {
   name: 'VueCart',
   computed: {
-    orderInfo(){
-      return this.$store.state.orderInfo || null
-    },
-    payUrl(){
-      return this.$store.state.payUrl || ''
-    },
     cart(){
       const cartList = this.$store.state.cart || []
       const list = cartList.map(item => {
@@ -99,8 +94,13 @@ export default {
   },
   data(){
     return {
-      showWay: false
+      showWay: false,
+      env: ''
     }
+  },
+  mounted() {
+    // 获取打开环境
+    this.env = getBrowserEnv()
   },
   methods: {
     changeAmount(type, id){
@@ -110,49 +110,41 @@ export default {
     del(id){
       this.$store.dispatch('removeCart', id)
     },
-    // async pay(type){
-    //   this.showWay = false
-    //   const loading = this.$toast.loading({
-    //     message: '正在支付',
-    //     forbidClick: true,
-    //     duration: 0
-    //   })
-    //   const res = await pay(type, this.totalPrice)
-    //   loading.clear()
-    //   if(res) {
-    //     const { payUrl } = res
-    //     window.location.href = payUrl
-    //   } else {
-    //     this.$toast.loading({
-    //       message: '支付失败，请重试',
-    //       forbidClick: true
-    //     })
-    //   }
-    // },
-    async pay(){
-      this.showWay = false
-      const loading = this.$toast.loading({
-        message: '正在支付',
-        forbidClick: true,
-        duration: 0
+    showPayWay(){
+      this.$dialog.confirm({
+        message: '为庆祝桔色商城入驻快手3周年，桔色联合快手支付推出9.5折优惠活动，快手邀请您体验快币支付',
+        showCancelButton: false
       })
-      let orderInfo = this.orderInfo
-      if(!orderInfo){
-        orderInfo = await takeOrder(parseFloat(this.totalPrice))
-        this.$store.dispatch('setOrderInfo', orderInfo)
-      } 
-      let url = this.payUrl
-      if(!url){
-        url = await getPayUrl(orderInfo)
-      }
-      loading.clear()
-      if(url) {
-        window.location.href = url
+      this.showWay = true
+    },
+    tip(way){
+      this.$dialog.alert({
+        message: `请用${way=='wx'? '微信' : '支付宝'}扫码进入商城选购`
+      })
+    },
+    async pay(way){
+      if(this.env != 'wx' && way == 'wx' ){
+        this.tip(way)
+      } else if(this.env != 'ali' && way == 'ali' ){
+        this.tip(way)
       } else {
-        this.$toast.loading({
-          message: '支付失败，请重试',
-          forbidClick: true
+        this.showWay = false
+        const loading = this.$toast.loading({
+          message: '正在支付',
+          forbidClick: true,
+          duration: 0
         })
+        const amount = way == 'ks' ? parseInt((this.totalPrice * 0.95)) : parseInt(this.totalPrice)
+        const url = await getPayUrl(amount)
+        loading.clear()
+        if(url) {
+          window.location.href = url
+        } else {
+          this.$toast.loading({
+            message: '支付失败，请重试',
+            forbidClick: true
+          })
+        }
       }
     }
   }

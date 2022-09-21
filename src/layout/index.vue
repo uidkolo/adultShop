@@ -28,7 +28,6 @@
 
 <script>
 import NavBar from '../components/navbar'
-import { getLocation } from '@/apis/index'
 export default {
   name: 'VueLayout',
   components: { NavBar },
@@ -43,18 +42,10 @@ export default {
     }
   },
   mounted(){
-    this.getLocation()
+
   },
   methods: {
-    async getLocation(){
-      let { city } = await getLocation()
-      city = city.substr(city.indexOf('区') + 1)
-      if (city.split('市').length > 2) {
-          city = city.substr(city.indexOf('市') + 1)
-      }
-      city = city.replace('市', '')
-      this.shopName = city ? `（${city}NO8368店）` : `（NO8368店）`
-    }
+
   }
 }
 </script>
