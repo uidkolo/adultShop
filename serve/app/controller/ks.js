@@ -3,7 +3,7 @@ const Controller = require('egg').Controller
 const axios = require('axios')
 var qs = require('qs')
 
-const userId = 'Aiz502890'
+const userId = '415666986'
 const cookie = `did=web_51ce0996bd697fd12ca9ea364c5160a3; didv=1662339291927; clientid=3; kpn=KUAISHOU; kpf=PC_WEB; _bl_uid=ILlnq7tUoyL1CLw3yxvCxge3pd06; userId=${userId}`
 
 /**
